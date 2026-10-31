@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KAROLINE · Ultra-Luxury Yachting & Sovereign Maritime Advisory</title>
+  <meta name="description" content="Asesoría marítima discreta para propietarios de superyates, astilleros de élite y family offices. Especialista en motores Mercury Marine Verado V12 y finanzas transfronterizas. Miami · Monaco · Dubai." />
+  <meta name="author" content="Carolina (Karoline) · FIU International Business & Marine Strategist" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Cormorant Garamond & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+  <style>
+    :root {
+      --navy: #0A1628;
+      --navy-dark: #050B14;
+      --cream: #F7F4EF;
+      --gold: #B89B5E;
+      --gold-light: #E5C478;
+      --blue-accent: #38BDF8;
+    }
+    * { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--navy); }
+    .font-editorial { font-family: 'Cormorant Garamond', Georgia, serif; }
+    .text-gold { color: var(--gold); }
+    .bg-navy { background-color: var(--navy); }
+    .border-gold { border-color: var(--gold); }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .metric-number { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1; }
+    .section-label { letter-spacing: .18em; font-size: .72rem; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+    
+    /* Shipyard Cards */
+    .shipyard-card {
+      transition: all 0.35s ease;
+    }
+    .shipyard-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(10, 22, 40, 0.08);
+    }
+    .shipyard-card:hover .shipyard-img {
+      transform: scale(1.06);
+    }
+
+    /* Range Sliders */
+    input[type=range] {
+      accent-color: #B89B5E;
+    }
+
+    /* Asistente Flotante KARO */
+    #karolineAssistant {
+      position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+      font-family: 'Inter', sans-serif;
+    }
+    #assistantToggle {
+      width: 62px; height: 62px; border-radius: 50%;
+      background: var(--navy); color: var(--gold);
+      border: 2px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; box-shadow: 0 12px 35px rgba(10,22,40,.4);
+      transition: transform .3s ease, box-shadow .3s ease;
+      position: relative;
+    }
+    #assistantToggle:hover { transform: scale(1.06); box-shadow: 0 16px 45px rgba(10,22,40,.6); }
+    #assistantToggle .beacon-dot {
+      position: absolute; top: 4px; right: 4px; width: 10px; height: 10px;
+      border-radius: 50%; background: #10B981;
+      border: 2px solid var(--navy);
+      box-shadow: 0 0 10px #10B981;
+    }
+    #assistantPanel {
+      position: absolute; bottom: 80px; right: 0;
+      width: min(410px, calc(100vw - 32px));
+      height: min(600px, calc(100vh - 120px));
+      background: var(--navy); color: white;
+      border: 1px solid rgba(184,155,94,.45);
+      border-radius: 18px;
+      display: none; flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(10,22,40,.75);
+    }
+    #assistantPanel.open { display: flex; animation: panelIn .35s ease; }
+    @keyframes panelIn {
+      from { opacity: 0; transform: translateY(14px) scale(.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    #assistantHeader {
+      padding: 14px 18px; border-bottom: 1px solid rgba(255,255,255,.1);
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(255,255,255,.03);
+    }
+    #assistantHeader .dot { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 10px #4ade80; }
+    #assistantMessages {
+      flex: 1; overflow-y: auto; padding: 16px 18px;
+      display: flex; flex-direction: column; gap: 12px;
+      font-size: 13px; line-height: 1.55;
+    }
+    #assistantMessages::-webkit-scrollbar { width: 4px; }
+    #assistantMessages::-webkit-scrollbar-thumb { background: rgba(184,155,94,.4); border-radius: 2px; }
+    .msg { padding: 11px 15px; border-radius: 14px; max-width: 86%; animation: msgIn .3s ease; }
+    @keyframes msgIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    .msg.bot { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); align-self: flex-start; color: #F1F5F9; }
+    .msg.user { background: var(--gold); color: var(--navy); align-self: flex-end; font-weight: 600; }
+    
+    .quick-replies { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+    .quick-replies button {
+      background: rgba(184,155,94,.1); border: 1px solid rgba(184,155,94,.45);
+      color: var(--gold-light); padding: 5px 11px; border-radius: 999px;
+      font-size: 11px; font-weight: 500; cursor: pointer; transition: all .2s;
+    }
+    .quick-replies button:hover { background: var(--gold); color: var(--navy); transform: translateY(-1px); }
+    
+    #assistantInputWrap {
+      padding: 12px 14px; border-top: 1px solid rgba(255,255,255,.1);
+      display: flex; gap: 8px; background: rgba(0,0,0,.2);
+    }
+    #assistantInput {
+      flex: 1; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.15);
+      color: white; padding: 10px 14px; border-radius: 8px; font-size: 13px; outline: none;
+    }
+    #assistantInput:focus { border-color: var(--gold); }
+    #assistantSend {
+      background: var(--gold); color: var(--navy); border: none;
+      padding: 10px 16px; border-radius: 8px; font-size: 12px; font-weight: 700;
+      letter-spacing: .05em; cursor: pointer; transition: background .2s;
+    }
+    #assistantSend:hover { background: white; }
+
+    @media (max-width: 480px) {
+      #karolineAssistant { bottom: 16px; right: 16px; }
+      #assistantPanel { bottom: 74px; }
+    }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- ================= 00. TOP ANNOUNCEMENT BAR ================= -->
+  <div class="bg-[#050B14] border-b border-white/10 py-2 px-6 text-center text-[10px] tracking-[0.2em] text-[#E5C478] uppercase font-semibold">
+    ⚜️ ASESORÍA NÁUTICA SOBERANA · DIQUES SECOS EN BREMEN, HAARLEM & LIVORNO · MIAMI · MÓNACO · DUBÁI
+  </div>
+
+  <!-- ================= 01. NAVIGATION HEADER ================= -->
+  <header class="sticky top-0 left-0 right-0 z-50 bg-[#0A1628]/95 backdrop-blur-md border-b border-white/10 transition-all">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo with Crest -->
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full border border-[#B89B5E] p-1 flex items-center justify-center bg-[#050B14]">
+          <img src="assets/img/karoline-crest.svg" alt="Royal Crest" class="w-7 h-7" />
+        </div>
+        <div class="flex flex-col">
+          <span class="font-editorial text-2xl tracking-[0.22em] text-white font-semibold">KAROLINE</span>
+          <span class="text-[8px] tracking-[0.24em] text-[#B89B5E] font-medium">SOVEREIGN ADVISORY</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-8 text-xs tracking-[0.16em] text-white/70">
+        <a href="#proyecto" class="hover:text-[#B89B5E] transition">PROYECTO</a>
+        <a href="#astilleros" class="hover:text-[#B89B5E] transition">ASTILLEROS</a>
+        <a href="#servicios" class="hover:text-[#B89B5E] transition">SERVICIOS</a>
+        <a href="#metodo" class="hover:text-[#B89B5E] transition">MÉTODO</a>
+        <a href="#inversion" class="hover:text-[#B89B5E] transition">CALCULADORA</a>
+        <a href="#nosotros" class="hover:text-[#B89B5E] transition">PERFIL</a>
+        <a href="#faq" class="hover:text-[#B89B5E] transition">FAQ</a>
+      </nav>
+
+      <!-- Right CTAs -->
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="https://wa.me/13055550199" target="_blank" rel="noopener" class="text-white/60 hover:text-[#38BDF8] text-xs tracking-[0.12em] transition">
+          WHATSAPP VIP
+        </a>
+        <a href="#contacto" class="inline-flex items-center gap-2 border border-[#B89B5E] text-[#B89B5E] px-5 py-2.5 text-xs tracking-[0.15em] font-medium hover:bg-[#B89B5E] hover:text-[#0A1628] transition">
+          AGENDAR MANDATO
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="menuBtn" class="lg:hidden text-white text-2xl" aria-label="Menú">☰</button>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-[#0A1628] border-t border-white/10 px-6 py-6 space-y-4 text-white/80 text-sm tracking-[0.15em]">
+      <a href="#proyecto" class="block">PROYECTO INSIGNIA</a>
+      <a href="#astilleros" class="block">ASTILLEROS</a>
+      <a href="#servicios" class="block">SERVICIOS</a>
+      <a href="#metodo" class="block">MÉTODO</a>
+      <a href="#inversion" class="block">CALCULADORA ROI</a>
+      <a href="#nosotros" class="block">PERFIL CAROLINA</a>
+      <a href="#faq" class="block">PREGUNTAS FRECUENTES</a>
+      <a href="#contacto" class="block text-[#B89B5E] font-semibold">AGENDAR MANDATO →</a>
+    </div>
+  </header>
+
+  <!-- ================= 02. HERO SECTION ================= -->
+  <section class="hero relative min-h-screen flex items-end bg-navy overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?q=80&w=2000&auto=format&fit=crop" alt="Superyate en el Mediterráneo" class="hero-img w-full h-full object-cover opacity-40" />
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/60 to-transparent"></div>
+    </div>
+    
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 pb-24 pt-36 w-full">
+      <div class="inline-flex items-center gap-2 bg-[#B89B5E]/15 border border-[#B89B5E]/40 px-3 py-1 rounded-full mb-6">
+        <span class="w-2 h-2 rounded-full bg-[#38BDF8] animate-pulse"></span>
+        <span class="text-[10px] tracking-[0.18em] text-[#E5C478] uppercase font-semibold">MANDATO SOBERANO 2026/2027 · DISCRECIÓN INSTITUCIONAL</span>
+      </div>
+
+      <h1 class="font-editorial text-white text-5xl md:text-7xl lg:text-8xl leading-[1.05] max-w-4xl font-normal">
+        Ultra-Luxury Yachting & <br /><em class="text-gold not-italic font-normal">Sovereign Maritime Capital</em>
+      </h1>
+
+      <p class="mt-8 max-w-2xl text-white/70 text-base md:text-lg font-light leading-relaxed">
+        Asesoría discreta para propietarios de superyates, astilleros de élite, family offices y corporaciones marinas de alto rendimiento. Arquitectura financiera transfronteriza, adquisiciones UHNWI y propulsión <strong>Mercury Marine Verado V12</strong>.
+      </p>
+
+      <div class="mt-10 flex flex-wrap gap-4 items-center">
+        <a href="#contacto" class="inline-flex items-center gap-2 bg-[#B89B5E] text-[#0A1628] px-8 py-4 text-xs font-semibold tracking-[0.15em] hover:bg-white transition">
+          SOLICITAR ADVISORY →
+        </a>
+        <a href="#astilleros" class="inline-flex items-center gap-2 border border-white/30 text-white px-8 py-4 text-xs tracking-[0.15em] hover:border-[#B89B5E] hover:text-[#B89B5E] transition">
+          VER ASTILLEROS
+        </a>
+        <button id="heroChatBtn" class="inline-flex items-center gap-2 border border-[#38BDF8]/40 text-[#38BDF8] bg-[#38BDF8]/10 px-6 py-4 text-xs tracking-[0.15em] hover:bg-[#38BDF8]/20 transition">
+          <span>✨</span>
+          <span>HABLAR CON KARO (IA)</span>
+        </button>
+      </div>
+
+      <!-- Live Corridors -->
+      <div class="mt-12 pt-8 border-t border-white/10 flex flex-wrap gap-8 text-[11px] tracking-[0.18em] text-white/50">
+        <span>MIAMI (BRICKELL)</span>
+        <span>·</span>
+        <span>MONACO (PORT HERCULE)</span>
+        <span>·</span>
+        <span>DUBAI (DIFC)</span>
+        <span>·</span>
+        <span>GENÈVE</span>
+        <span>·</span>
+        <span>FORT LAUDERDALE</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 03. MÉTRICAS CREDENCIALES ================= -->
+  <section class="bg-white border-b border-[#0A1628]/10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-14 grid grid-cols-2 lg:grid-cols-4 gap-10 text-center">
+      <div class="reveal">
+        <p class="metric-number text-[#0A1628]">$180M+</p>
+        <p class="text-[10px] tracking-[0.2em] text-[#0A1628]/50 mt-2 font-semibold">ACTIVOS MARÍTIMOS ASESORADOS</p>
+      </div>
+      <div class="reveal">
+        <p class="metric-number text-[#0A1628]">5</p>
+        <p class="text-[10px] tracking-[0.2em] text-[#0A1628]/50 mt-2 font-semibold">HUBS FINANCIEROS GLOBALES</p>
+      </div>
+      <div class="reveal">
+        <p class="metric-number text-[#0A1628]">10</p>
+        <p class="text-[10px] tracking-[0.2em] text-[#0A1628]/50 mt-2 font-semibold">ASTILLEROS DE ÉLITE VERIFICADOS</p>
+      </div>
+      <div class="reveal">
+        <p class="metric-number text-[#38BDF8]">V12</p>
+        <p class="text-[10px] tracking-[0.2em] text-[#0A1628]/50 mt-2 font-semibold">MERCURY MARINE PROPULSION EXPERTISE</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 04. PROYECTO INSIGNIA (SALMAN CANGREJO AZUL STYLE) ================= -->
+  <section id="proyecto" class="py-24 lg:py-32 bg-[#050B14] text-white border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      
+      <!-- Split Head -->
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16 pb-8 border-b border-white/10">
+        <div>
+          <p class="section-label">01 · PROYECTO INSIGNIA · FLAGSHIP MEGAYACHT</p>
+          <h2 class="font-editorial text-4xl md:text-5xl lg:text-6xl mt-4 leading-tight">
+            Project Sovereign · <em class="text-gold not-italic">115M Custom</em>
+          </h2>
+        </div>
+        <p class="text-xs text-white/50 max-w-md font-light leading-relaxed">
+          Renders de referencia e ingeniería naval bajo estricto acuerdo de no divulgación (NDA). Especificaciones sujetas a auditoría en dique seco.
+        </p>
+      </div>
+
+      <!-- Flagship Grid -->
+      <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <!-- Left: Copy & Specs -->
+        <div class="lg:col-span-6 space-y-6">
+          <div class="flex items-center gap-2 text-xs text-[#38BDF8] font-medium tracking-wide">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+            <span>Port Hercule (Mónaco) · Biscayne Bay (Miami) · Dubái Harbour</span>
+          </div>
+
+          <p class="text-white/70 text-base font-light leading-relaxed">
+            115 metros de pura arquitectura naval en acero de grado soberano y aluminio aerodinámico. Diseñado en estrecha relación con los maestros de Bremen y Haarlem, con propulsión híbrida eco-diesel, helipuerto comercial certificado y hangar para dos chase boats de 50 pies con cuádruple motorización Mercury Verado V12 de 600HP.
+          </p>
+
+          <!-- Specs List Grid (Salman dl.specs style) -->
+          <dl class="grid grid-cols-2 sm:grid-cols-3 gap-3 bg-white/5 p-6 rounded-xl border border-white/10">
+            <div><dt class="text-[9px] tracking-[0.16em] uppercase text-white/40">Tipología</dt><dd class="font-editorial text-lg text-white mt-1">Full Displacement</dd></div>
+            <div><dt class="text-[9px] tracking-[0.16em] uppercase text-white/40">Eslora Total</dt><dd class="font-editorial text-lg text-white mt-1">115.4 m</dd></div>
+            <div><dt class="text-[9px] tracking-[0.16em] uppercase text-white/40">Manga (Beam)</dt><dd class="font-editorial text-lg text-white mt-1">17.2 m</dd></div>
+            <div><dt class="text-[9px] tracking-[0.16em] uppercase text-white/40">Autonomía</dt><dd class="font-editorial text-lg text-white mt-1">6,500 NM</dd></div>
+            <div><dt class="text-[9px] tracking-[0.16em] uppercase text-white/40">Entrega Slot</dt><dd class="font-editorial text-lg text-[#B89B5E] mt-1">Q4 2027</dd></div>
+            <div><dt class="text-[9px] tracking-[0.16em] uppercase text-white/40">Disponibles</dt><dd class="font-editorial text-lg text-white mt-1">1 / 3 Berths</dd></div>
+          </dl>
+
+          <!-- Availability Bar -->
+          <div class="bg-white/5 p-4 rounded-xl border border-white/10">
+            <div class="flex justify-between text-xs tracking-wider uppercase mb-2">
+              <span class="text-white/60">Etapa 1 · Avance de Asignación Dique Seco</span>
+              <strong class="text-[#B89B5E]">75%</strong>
+            </div>
+            <div class="w-full bg-white/10 h-2 rounded-full overflow-hidden">
+              <div class="bg-gradient-to-r from-[#B89B5E] to-[#38BDF8] h-full rounded-full" style="width: 75%;"></div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap gap-4 pt-2">
+            <a href="#contacto" class="inline-flex items-center gap-2 bg-[#B89B5E] text-[#0A1628] px-6 py-3 text-xs font-semibold tracking-[0.15em] hover:bg-white transition">
+              SOLICITAR DOSSIER COMPLETO →
+            </a>
+            <button onclick="askKaro('Cuéntame más sobre el Project Sovereign de 115m')" class="inline-flex items-center gap-2 border border-white/20 text-white/80 px-6 py-3 text-xs tracking-[0.15em] hover:border-[#B89B5E] hover:text-[#B89B5E] transition">
+              <span>✨</span>
+              <span>PREGUNTAR A KARO</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Gallery with Thumbs -->
+        <div class="lg:col-span-6 space-y-4">
+          <figure class="relative rounded-2xl overflow-hidden aspect-[16/10] bg-navy border border-white/15 shadow-2xl">
+            <img 
+              id="flagshipImg" 
+              src="https://images.unsplash.com/photo-1569263979104-865ab7cd8d17?auto=format&fit=crop&w=1200&q=85" 
+              alt="Project Sovereign en alta mar" 
+              class="w-full h-full object-cover transition-opacity duration-300"
+            />
+            <figcaption class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex justify-between items-end text-xs">
+              <span id="flagshipCaption" class="text-white/90 font-medium">01 · Perfil Exterior en Alta Mar · Beach Club Infinito</span>
+              <span class="text-[#B89B5E] tracking-widest font-semibold"><span id="flagshipCount">01</span> / 04</span>
+            </figcaption>
+          </figure>
+
+          <!-- Thumbnails -->
+          <div class="grid grid-cols-4 gap-3">
+            <button 
+              class="flagship-thumb relative rounded-lg overflow-hidden aspect-[16/10] border-2 border-[#B89B5E] opacity-100 transition" 
+              onclick="setFlagshipImage('https://images.unsplash.com/photo-1569263979104-865ab7cd8d17?auto=format&fit=crop&w=1200&q=85', '01 · Perfil Exterior en Alta Mar · Beach Club Infinito', '01', this)"
+            >
+              <img src="https://images.unsplash.com/photo-1569263979104-865ab7cd8d17?auto=format&fit=crop&w=300&q=75" alt="Vista 1" class="w-full h-full object-cover" />
+            </button>
+
+            <button 
+              class="flagship-thumb relative rounded-lg overflow-hidden aspect-[16/10] border-2 border-white/20 opacity-60 hover:opacity-100 transition" 
+              onclick="setFlagshipImage('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=85', '02 · Cubierta Superior al Atardecer · Helipuerto Certificado', '02', this)"
+            >
+              <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=300&q=75" alt="Vista 2" class="w-full h-full object-cover" />
+            </button>
+
+            <button 
+              class="flagship-thumb relative rounded-lg overflow-hidden aspect-[16/10] border-2 border-white/20 opacity-60 hover:opacity-100 transition" 
+              onclick="setFlagshipImage('https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=1200&q=85', '03 · Fondeo en Mónaco · Puerto Hércules', '03', this)"
+            >
+              <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=300&q=75" alt="Vista 3" class="w-full h-full object-cover" />
+            </button>
+
+            <button 
+              class="flagship-thumb relative rounded-lg overflow-hidden aspect-[16/10] border-2 border-white/20 opacity-60 hover:opacity-100 transition" 
+              onclick="setFlagshipImage('https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=1200&q=85', '04 · Hangar Auxiliar · Chase Boat Mercury V12 600HP', '04', this)"
+            >
+              <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=300&q=75" alt="Vista 4" class="w-full h-full object-cover" />
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 05. TOP 10 ASTILLEROS (WITH HIGH-RES PHOTOS & FILTERS) ================= -->
+  <section id="astilleros" class="py-24 lg:py-32">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      
+      <!-- Split Head -->
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-12">
+        <div class="reveal">
+          <p class="section-label">02 · EL PINÁCULO DEL SHIPBUILDING GLOBAL</p>
+          <h2 class="font-editorial text-4xl md:text-5xl lg:text-6xl mt-4 leading-tight">
+            Top 10 Elite Shipyards &<br><em class="text-gold not-italic">World Maritime Capitals</em>
+          </h2>
+        </div>
+        <p class="reveal max-w-md text-sm text-[#0A1628]/60 font-light leading-relaxed">
+          Relaciones estratégicas directas con los maestros del norte de Europa y el Mediterráneo, combinadas con la dominancia americana en propulsión Mercury Marine de alto rendimiento.
+        </p>
+      </div>
+
+      <!-- Salman-style Category Filters -->
+      <div class="flex flex-wrap items-center gap-2 pb-6 border-b border-[#0A1628]/10 mb-12 text-xs">
+        <button class="yard-filter active bg-[#0A1628] text-white px-4 py-2 rounded-full tracking-wider uppercase transition" data-filter="all">Todos (10)</button>
+        <button class="yard-filter border border-[#0A1628]/20 text-[#0A1628]/70 hover:border-[#B89B5E] px-4 py-2 rounded-full tracking-wider uppercase transition" data-filter="gigayachts">Gigayachts (100m+)</button>
+        <button class="yard-filter border border-[#0A1628]/20 text-[#0A1628]/70 hover:border-[#B89B5E] px-4 py-2 rounded-full tracking-wider uppercase transition" data-filter="northern-europe">Bespoke Holanda & Alemania</button>
+        <button class="yard-filter border border-[#0A1628]/20 text-[#0A1628]/70 hover:border-[#B89B5E] px-4 py-2 rounded-full tracking-wider uppercase transition" data-filter="italian-couture">Alta Costura Italiana</button>
+        <button class="yard-filter border border-[#0A1628]/20 text-[#0A1628]/70 hover:border-[#B89B5E] px-4 py-2 rounded-full tracking-wider uppercase transition" data-filter="performance">Mercury V12 & Velocidad</button>
+        <span class="ml-auto text-[#B89B5E] text-[10px] tracking-[0.2em] font-semibold" id="yardCount">10 ASTILLEROS MOSTRADOS</span>
+      </div>
+
+      <!-- Shipyards Photo Cards Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="shipyardGrid">
+        
+        <!-- 1. Lürssen -->
+        <article class="shipyard-card bg-white rounded-xl overflow-hidden border border-[#0A1628]/10 flex flex-col" data-cat="gigayachts northern-europe">
+          <div class="relative h-56 overflow-hidden bg-navy">
+            <img src="https://images.unsplash.com/photo-1569263979104-865ab7cd8d17?auto=format&fit=crop&w=800&q=80" alt="Lürssen Yachts" class="shipyard-img w-full h-full object-cover transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>
+            <div class="absolute top-3 left-3 text-[10px] tracking-widest uppercase bg-black/60 backdrop-blur-sm text-white px-2.5 py-1 rounded-full border border-white/20">🇩🇪 Germany · Sovereign</div>
+            <div class="absolute top-3 right-3 text-[10px] tracking-wider font-semibold text-[#E5C478] bg-black/70 px-2.5 py-1 rounded-full">85m – 180m+</div>
+          </div>
+          <div class="p-8 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-baseline justify-between mb-1">
+                <h3 class="font-editorial text-2xl font-semibold">Lürssen Yachts</h3>
+                <span class="text-xs text-gold font-bold">#01</span>
+              </div>
+              <p class="text-[10px] tracking-[0.18em] text-[#0A1628]/50 uppercase mb-3 font-semibold">Bremen & Rendsburg, Alemania</p>
+              <p class="text-sm text-[#0A1628]/70 font-light leading-relaxed mb-4">
+                La autoridad global indiscutible en ingeniería de megayates a medida. Maestros del acero, el desplazamiento colosal y la discreción soberana.
+              </p>
+              <div class="bg-[#F7F4EF] p-3 rounded-lg text-xs text-[#0A1628]/70 mb-4">
+                <span class="font-semibold text-[#0A1628]">Signature:</span> Azzam (180m), Dilbar (156m), Kismet (122m)
+              </div>
+            </div>
+            <button onclick="askKaro('Consultar disponibilidad de dique seco en Lürssen Yachts')" class="w-full text-center py-2.5 border border-[#B89B5E] text-[#B89B5E] text-xs tracking-wider uppercase font-medium hover:bg-[#B89B5E] hover:text-white transition">
+              Consultar Dique Lürssen
+            </button>
+          </div>
+        </article>
+
+        <!-- 2. Feadship -->
+        <article class="shipyard-card bg-white rounded-xl overflow-hidden border border-[#0A1628]/10 flex flex-col" data-cat="gigayachts northern-europe">
+          <div class="relative h-56 overflow-hidden bg-navy">
+            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80" alt="Feadship Yachts" class="shipyard-img w-full h-full object-cover transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>
+            <div class="absolute top-3 left-3 text-[10px] tracking-widest uppercase bg-black/60 backdrop-blur-sm text-white px-2.5 py-1 rounded-full border border-white/20">🇳🇱 Netherlands · Bespoke</div>
+            <div class="absolute top-3 right-3 text-[10px] tracking-wider font-semibold text-[#E5C478] bg-black/70 px-2.5 py-1 rounded-full">50m – 110m+</div>
+          </div>
+          <div class="p-8 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-baseline justify-between mb-1">
+                <h3 class="font-editorial text-2xl font-semibold">Feadship</h3>
+                <span class="text-xs text-gold font-bold">#02</span>
+              </div>
+              <p class="text-[10px] tracking-[0.18em] text-[#0A1628]/50 uppercase mb-3 font-semibold">Haarlem / Aalsmeer, Países Bajos</p>
+              <p class="text-sm text-[#0A1628]/70 font-light leading-relaxed mb-4">
+                Perfección pura a medida. Artesanía holandesa legendaria, arquitectura naval limpia desde cero y la mayor preservación del valor en reventa.
+              </p>
+              <div class="bg-[#F7F4EF] p-3 rounded-lg text-xs text-[#0A1628]/70 mb-4">
+                <span class="font-semibold text-[#0A1628]">Signature:</span> Venus (78m), Savannah (83m), Faith (96m)
+              </div>
+            </div>
+            <button onclick="askKaro('Consultar disponibilidad de dique seco en Feadship')" class="w-full text-center py-2.5 border border-[#B89B5E] text-[#B89B5E] text-xs tracking-wider uppercase font-medium hover:bg-[#B89B5E] hover:text-white transition">
+              Consultar Dique Feadship
+            </button>
+          </div>
+        </article>
+
+        <!-- 3. Oceanco -->
+        <article class="shipyard-card bg-white rounded-xl overflow-hidden border border-[#0A1628]/10 flex flex-col" data-cat="gigayachts northern-europe">
+          <div class="relative h-56 overflow-hidden bg-navy">
+            <img src="https://images.unsplash.com/photo-1505705694340-019e1e335916?auto=format&fit=crop&w=800&q=80" alt="Oceanco Megayachts" class="shipyard-img w-full h-full object-cover transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>
+            <div class="absolute top-3 left-3 text-[10px] tracking-widest uppercase bg-black/60 backdrop-blur-sm text-white px-2.5 py-1 rounded-full border border-white/20">🇳🇱 Netherlands · Innovators</div>
+            <div class="absolute top-3 right-3 text-[10px] tracking-wider font-semibold text-[#E5C478] bg-black/70 px-2.5 py-1 rounded-full">80m – 127m+</div>
+          </div>
+          <div class="p-8 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-baseline justify-between mb-1">
+                <h3 class="font-editorial text-2xl font-semibold">Oceanco</h3>
+                <span class="text-xs text-gold font-bold">#03</span>
+              </div>
+              <p class="text-[10px] tracking-[0.18em] text-[#0A1628]/50 uppercase mb-3 font-semibold">Alblasserdam, Países Bajos</p>
+              <p class="text-sm text-[#0A1628]/70 font-light leading-relaxed mb-4">
+                Creadores visionarios de megayates, pioneros en propulsión híbrida diésel-eléctrica y maravillas de vela DynaRig para líderes tecnológicos.
+              </p>
+              <div class="bg-[#F7F4EF] p-3 rounded-lg text-xs text-[#0A1628]/70 mb-4">
+                <span class="font-semibold text-[#0A1628]">Signature:</span> Koru (127m - Bezos), Black Pearl (106m)
+              </div>
+            </div>
+            <button onclick="askKaro('Consultar proyectos y slots en Oceanco')" class="w-full text-center py-2.5 border border-[#B89B5E] text-[#B89B5E] text-xs tracking-wider uppercase font-medium hover:bg-[#B89B5E] hover:text-white transition">
+              Consultar Dique Oceanco
+            </button>
+          </div>
+        </article>
+
+        <!-- 4. Benetti -->
+        <article class="shipyard-card bg-white rounded-xl overflow-hidden border border-[#0A1628]/10 flex flex-col" data-cat="gigayachts italian-couture">
+          <div class="relative h-56 overflow-hidden bg-navy">
+            <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=800&q=80" alt="Benetti Yachts" class="shipyard-img w-full h-full object-cover transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>
+            <div class="absolute top-3 left-3 text-[10px] tracking-widest uppercase bg-black/60 backdrop-blur-sm text-white px-2.5 py-1 rounded-full border border-white/20">🇮🇹 Italy · Mediterranean</div>
+            <div class="absolute top-3 right-3 text-[10px] tracking-wider font-semibold text-[#E5C478] bg-black/70 px-2.5 py-1 rounded-full">35m – 108m+</div>
+          </div>
+          <div class="p-8 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-baseline justify-between mb-1">
+                <h3 class="font-editorial text-2xl font-semibold">Benetti Yachts</h3>
+                <span class="text-xs text-gold font-bold">#04</span>
+              </div>
+              <p class="text-[10px] tracking-[0.18em] text-[#0A1628]/50 uppercase mb-3 font-semibold">Livorno & Viareggio, Italia</p>
+              <p class="text-sm text-[#0A1628]/70 font-light leading-relaxed mb-4">
+                Más de 150 años de supremacía naval italiana. Líder mundial en volumen de producción, revolucionarios Oasis Deck beach clubs y máximo chárter yield.
+              </p>
+              <div class="bg-[#F7F4EF] p-3 rounded-lg text-xs text-[#0A1628]/70 mb-4">
+                <span class="font-semibold text-[#0A1628]">Signature:</span> Lana (107m), IJE (108m), Luminosity (107m)
+              </div>
+            </div>
+            <button onclick="askKaro('Consultar contratos y chárter en Benetti Yachts')" class="w-full text-center py-2.5 border border-[#B89B5E] text-[#B89B5E] text-xs tracking-wider uppercase font-medium hover:bg-[#B89B5E] hover:text-white transition">
+              Consultar Dique Benetti
+            </button>
+          </div>
+        </article>
+
+        <!-- 5. Sanlorenzo -->
+        <article class="shipyard-card bg-white rounded-xl overflow-hidden border border-[#0A1628]/10 flex flex-col" data-cat="italian-couture">
+          <div class="relative h-56 overflow-hidden bg-navy">
+            <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80" alt="Sanlorenzo Yachts" class="shipyard-img w-full h-full object-cover transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>
+            <div class="absolute top-3 left-3 text-[10px] tracking-widest uppercase bg-black/60 backdrop-blur-sm text-white px-2.5 py-1 rounded-full border border-white/20">🇮🇹 Italy · Haute Couture</div>
+            <div class="absolute top-3 right-3 text-[10px] tracking-wider font-semibold text-[#E5C478] bg-black/70 px-2.5 py-1 rounded-full">30m – 73m+</div>
+          </div>
+          <div class="p-8 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-baseline justify-between mb-1">
+                <h3 class="font-editorial text-2xl font-semibold">Sanlorenzo Yachts</h3>
+                <span class="text-xs text-gold font-bold">#05</span>
+              </div>
+              <p class="text-[10px] tracking-[0.18em] text-[#0A1628]/50 uppercase mb-3 font-semibold">La Spezia & Ameglia, Italia</p>
+              <p class="text-sm text-[#0A1628]/70 font-light leading-relaxed mb-4">
+                Purismo arquitectónico y elegancia sartorial. Diseños asimétricos únicos, explorer yates de acero y colaboraciones de interior con firmas de alta costura.
+              </p>
+              <div class="bg-[#F7F4EF] p-3 rounded-lg text-xs text-[#0A1628]/70 mb-4">
+                <span class="font-semibold text-[#0A1628]">Signature:</span> 500Exp Explorer, 52Steel Piscina Cristal
+              </div>
+            </div>
+            <button onclick="askKaro('Consultar asignación en Sanlorenzo')" class="w-full text-center py-2.5 border border-[#B89B5E] text-[#B89B5E] text-xs tracking-wider uppercase font-medium hover:bg-[#B89B5E] hover:text-white transition">
+              Consultar Dique Sanlorenzo
+            </button>
+          </div>
+        </article>
+
+        <!-- 6. Mercury Marine High-Performance -->
+        <article class="shipyard-card bg-white rounded-xl overflow-hidden border border-[#38BDF8]/40 flex flex-col shadow-lg" data-cat="performance">
+          <div class="relative h-56 overflow-hidden bg-navy">
+            <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=80" alt="Mercury Marine Propulsion" class="shipyard-img w-full h-full object-cover transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>
+            <div class="absolute top-3 left-3 text-[10px] tracking-widest uppercase bg-black/60 backdrop-blur-sm text-[#38BDF8] px-2.5 py-1 rounded-full border border-[#38BDF8]/40">🇺🇸 USA · Propulsion</div>
+            <div class="absolute top-3 right-3 text-[10px] tracking-wider font-semibold text-[#38BDF8] bg-black/70 px-2.5 py-1 rounded-full">Verado V12 600HP</div>
+          </div>
+          <div class="p-8 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-baseline justify-between mb-1">
+                <h3 class="font-editorial text-2xl font-semibold text-[#0A1628]">Mercury Marine V12</h3>
+                <span class="text-xs text-[#38BDF8] font-bold">#08</span>
+              </div>
+              <p class="text-[10px] tracking-[0.18em] text-[#0A1628]/50 uppercase mb-3 font-semibold">Fond du Lac & Miami, EE. UU.</p>
+              <p class="text-sm text-[#0A1628]/70 font-light leading-relaxed mb-4">
+                El benchmark de ingeniería para chase boats de alto rendimiento y tenders de superyates. Motor V12 atmosférico de 7.6L con transmisión de 2 velocidades y embase orientable.
+              </p>
+              <div class="bg-[#F0F9FF] p-3 rounded-lg text-xs text-[#0369A1] mb-4">
+                <span class="font-semibold">Arquitectura:</span> Quad & Quint Rigging (2,400HP - 3,000HP)
+              </div>
+            </div>
+            <button onclick="askKaro('Explicar ventajas de motores Mercury Marine V12')" class="w-full text-center py-2.5 border border-[#38BDF8] text-[#0369A1] text-xs tracking-wider uppercase font-semibold hover:bg-[#38BDF8] hover:text-white transition">
+              Consultar Ingeniería V12
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 06. SERVICIOS (SALMAN SERVICES STYLE) ================= -->
+  <section id="servicios" class="py-24 lg:py-32 bg-navy text-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="reveal max-w-3xl mb-16">
+        <p class="section-label">03 · QUÉ HACEMOS</p>
+        <h2 class="font-editorial text-4xl md:text-5xl lg:text-6xl mt-4 leading-tight font-normal">
+          Arquitectura marítima.<br><em class="text-gold not-italic font-normal">Capital soberano.</em>
+        </h2>
+        <p class="mt-6 text-white/60 font-light leading-relaxed">
+          No vendemos barcos. Estructuramos adquisiciones, optimizamos flotas y conectamos capital con ingeniería naval de élite en Miami, Mónaco y Dubái.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-px bg-white/10 rounded-2xl overflow-hidden border border-white/10">
+        <div class="reveal bg-navy p-8 lg:p-12 hover:bg-[#0E1F38] transition">
+          <p class="text-xs tracking-[0.2em] text-gold mb-6 font-bold">01</p>
+          <h3 class="font-editorial text-3xl mb-3">Advisory & Estructuración</h3>
+          <p class="text-sm text-white/60 font-light leading-relaxed mb-6">
+            Diagnóstico de flota, viabilidad financiera, estructuración de propiedad (SPV, Delaware, Caimán, leasing) y coordinación fiscal con family offices y banca privada internacional.
+          </p>
+          <div class="text-[11px] text-[#E5C478] tracking-widest uppercase">Florida Cap $18k · IVA Comercial Mónaco</div>
+        </div>
+
+        <div class="reveal bg-navy p-8 lg:p-12 hover:bg-[#0E1F38] transition">
+          <p class="text-xs tracking-[0.2em] text-gold mb-6 font-bold">02</p>
+          <h3 class="font-editorial text-3xl mb-3">Off-Market Acquisitions</h3>
+          <p class="text-sm text-white/60 font-light leading-relaxed mb-6">
+            Acceso a oportunidades discretas fuera de catálogo público, negociación de slots de nueva construcción en astilleros de élite y due diligence técnica y legal bajo estricto NDA.
+          </p>
+          <div class="text-[11px] text-[#E5C478] tracking-widest uppercase">Slots Dique Seco · Auditoría Escrow</div>
+        </div>
+
+        <div class="reveal bg-navy p-8 lg:p-12 hover:bg-[#0E1F38] transition">
+          <p class="text-xs tracking-[0.2em] text-[#38BDF8] mb-6 font-bold">03</p>
+          <h3 class="font-editorial text-3xl mb-3 text-white">Propulsion & Performance</h3>
+          <p class="text-sm text-white/60 font-light leading-relaxed mb-6">
+            Especialización técnica Mercury Marine Verado V12 (600HP), arquitectura motriz para mega-tenders y chase boats de alta velocidad (Midnight Express, Cigarette, HCB).
+          </p>
+          <div class="text-[11px] text-[#38BDF8] tracking-widest uppercase">Verado V12 · Transmisión 2 Velocidades</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 07. MÉTODO (5 ETAPAS) ================= -->
+  <section id="metodo" class="py-24 lg:py-32">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-12 gap-16">
+        
+        <div class="reveal lg:col-span-4">
+          <p class="section-label">04 · MÉTODO KAROLINE</p>
+          <h2 class="font-editorial text-4xl md:text-5xl mt-4 leading-tight font-normal">
+            Cinco etapas.<br><em class="text-gold not-italic font-normal">Cero improvisación.</em>
+          </h2>
+          <p class="mt-6 text-sm text-[#0A1628]/60 font-light leading-relaxed">
+            Cada mandato sigue el mismo rigor institucional: entender el capital, la ruta náutica y el activo antes de mover una sola pieza.
+          </p>
+          <div class="mt-8">
+            <a href="#contacto" class="inline-flex items-center gap-2 text-xs text-gold tracking-widest uppercase font-semibold hover:underline">
+              INICIAR MANDATO PRIVADO →
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-8 divide-y divide-[#0A1628]/10">
+          <div class="reveal py-6 flex gap-8">
+            <span class="font-editorial text-3xl text-gold w-10 shrink-0">01</span>
+            <div>
+              <h4 class="font-semibold text-xl mb-1 text-[#0A1628]">Conversación confidencial bajo NDA</h4>
+              <p class="text-sm text-[#0A1628]/60 font-light leading-relaxed">
+                Entendemos el objetivo soberano: adquisición, venta, estructuración de flota o auditoría de dique seco. Sin guion comercial.
+              </p>
+            </div>
+          </div>
+
+          <div class="reveal py-6 flex gap-8">
+            <span class="font-editorial text-3xl text-gold w-10 shrink-0">02</span>
+            <div>
+              <h4 class="font-semibold text-xl mb-1 text-[#0A1628]">Diagnóstico técnico-financiero</h4>
+              <p class="text-sm text-[#0A1628]/60 font-light leading-relaxed">
+                Revisamos ingeniería de casco, propulsión Mercury V12, bandera, tripulación y estructura de costos operativos reales antes de emitir cualquier oferta.
+              </p>
+            </div>
+          </div>
+
+          <div class="reveal py-6 flex gap-8">
+            <span class="font-editorial text-3xl text-gold w-10 shrink-0">03</span>
+            <div>
+              <h4 class="font-semibold text-xl mb-1 text-[#0A1628]">Estructuración fiscal de la operación</h4>
+              <p class="text-sm text-[#0A1628]/60 font-light leading-relaxed">
+                Constitución de sociedades fiduciarias (SPV en Delaware, Caimán o Malta), financiación marítima privada y calendario de pagos en custodia (escrow).
+              </p>
+            </div>
+          </div>
+
+          <div class="reveal py-6 flex gap-8">
+            <span class="font-editorial text-3xl text-gold w-10 shrink-0">04</span>
+            <div>
+              <h4 class="font-semibold text-xl mb-1 text-[#0A1628]">Negociación directa ante astillero</h4>
+              <p class="text-sm text-[#0A1628]/60 font-light leading-relaxed">
+                Representación confidencial ante los consejos directivos de Lürssen, Feadship o Benetti, supervisión de hitos de grada y control de sobrecostos.
+              </p>
+            </div>
+          </div>
+
+          <div class="reveal py-6 flex gap-8">
+            <span class="font-editorial text-3xl text-gold w-10 shrink-0">05</span>
+            <div>
+              <h4 class="font-semibold text-xl mb-1 text-[#0A1628]">Pruebas de mar & entrega de llaves</h4>
+              <p class="text-sm text-[#0A1628]/60 font-light leading-relaxed">
+                Acompañamiento en sea trials en el Mar del Norte o Mediterráneo, abanderamiento y puesta a punto de charter management para optimizar rendimiento.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 08. POR QUÉ KAROLINE / PERFIL DE CAROLINA ================= -->
+  <section id="nosotros" class="py-24 lg:py-32 bg-white border-y border-[#0A1628]/10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      
+      <div class="reveal text-center max-w-3xl mx-auto mb-16">
+        <p class="section-label">05 · PERFIL DE LIDERAZGO & CREDENCIALES</p>
+        <h2 class="font-editorial text-4xl md:text-5xl lg:text-6xl mt-4 font-normal">
+          “No asesoramos barcos.<br><em class="text-gold not-italic font-normal">Estructuramos patrimonio marítimo.”</em>
+        </h2>
+        <p class="mt-6 text-sm text-[#0A1628]/60 font-light leading-relaxed">
+          Carolina (Karoline) · Managing Principal & Maritime Strategist
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div class="space-y-8">
+          <div class="bg-[#F7F4EF] p-8 rounded-xl border border-[#0A1628]/10">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-2xl">🎓</span>
+              <h4 class="font-editorial text-2xl font-semibold">Florida International University (FIU)</h4>
+            </div>
+            <p class="text-xs text-gold uppercase tracking-wider font-semibold mb-2">Chapman Graduate School of Business</p>
+            <p class="text-sm text-[#0A1628]/70 font-light leading-relaxed">
+              Maestría en Negocios y Finanzas Internacionales. Especialista en banca transfronteriza, modelado de amortización de activos náuticos y estructuración fiduciaria de activos soberanos.
+            </p>
+          </div>
+
+          <div class="bg-[#F7F4EF] p-8 rounded-xl border border-[#38BDF8]/30">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-2xl">⚡</span>
+              <h4 class="font-editorial text-2xl font-semibold text-[#0A1628]">Mercury Marine Specialist</h4>
+            </div>
+            <p class="text-xs text-[#0369A1] uppercase tracking-wider font-semibold mb-2">High-Performance Outboards Division · Miami</p>
+            <p class="text-sm text-[#0A1628]/70 font-light leading-relaxed">
+              Trayectoria técnica en montajes multieje de motores Verado V12 de 600HP para embarcaciones de apoyo y chase boats de gran porte en la meca del yachting de Miami y Fort Lauderdale.
+            </p>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <div class="reveal">
+            <h4 class="font-semibold text-lg text-[#0A1628] mb-1">Un solo responsable institucional</h4>
+            <p class="text-sm text-[#0A1628]/60 font-light leading-relaxed">
+              Finanzas, ingeniería naval y estructuración legal bajo un mismo mandato. Sin intermediarios comisionistas ni versiones contradictorias.
+            </p>
+          </div>
+
+          <div class="reveal">
+            <h4 class="font-semibold text-lg text-[#0A1628] mb-1">Discreción soberana absoluta</h4>
+            <p class="text-sm text-[#0A1628]/60 font-light leading-relaxed">
+              Trabajamos con familias multimillonarias y armadores de estado. La confidencialidad está blindada mediante NDAs bilaterales.
+            </p>
+          </div>
+
+          <div class="reveal">
+            <h4 class="font-semibold text-lg text-[#0A1628] mb-1">Acceso off-market verificado</h4>
+            <p class="text-sm text-[#0A1628]/60 font-light leading-relaxed">
+              Acceso a slots de astillero pre-ordenados y buques que se transfieren de forma privada en Mónaco, Ginebra y Dubái sin pisar portales web.
+            </p>
+          </div>
+
+          <div class="pt-4">
+            <button onclick="askKaro('Quiero saber más sobre el perfil y credenciales de Carolina')" class="inline-flex items-center gap-2 text-xs tracking-widest text-[#B89B5E] font-semibold uppercase hover:underline">
+              CONSULTAR CREDENCIALES CON KARO →
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 09. CALCULADORA DE CHÁRTER & OPEX ================= -->
+  <section id="inversion" class="py-24 lg:py-32 bg-[#0A1628] text-white">
+    <div class="max-w-5xl mx-auto px-6 lg:px-10">
+      
+      <div class="reveal text-center max-w-2xl mx-auto mb-16">
+        <p class="section-label">06 · MODELADO FINANCIERO & CHÁRTER</p>
+        <h2 class="font-editorial text-4xl md:text-5xl mt-4 leading-tight font-normal">
+          Calculadora de Rendimiento & <br /><em class="text-gold not-italic font-normal">Absorción de OpEx</em>
+        </h2>
+        <p class="mt-4 text-sm text-white/60 font-light">
+          Simula el impacto del alquiler vacacional en la estructura de costos anuales de un superyate.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-10 bg-white/5 p-8 lg:p-12 rounded-2xl border border-white/10 shadow-2xl">
+        
+        <!-- Sliders -->
+        <div class="space-y-6">
+          <div>
+            <div class="flex justify-between text-xs tracking-wider uppercase mb-2">
+              <label for="sliderPrice" class="text-white/60">Valor del Buque</label>
+              <span id="dispPrice" class="text-gold font-bold font-editorial text-lg">$65,000,000</span>
+            </div>
+            <input type="range" id="sliderPrice" min="15000000" max="200000000" step="5000000" value="65000000" class="w-full cursor-pointer" />
+            <div class="flex justify-between text-[10px] text-white/30 mt-1"><span>$15M</span><span>$200M</span></div>
+          </div>
+
+          <div>
+            <div class="flex justify-between text-xs tracking-wider uppercase mb-2">
+              <label for="sliderWeeks" class="text-white/60">Semanas de Chárter / Año</label>
+              <span id="dispWeeks" class="text-gold font-bold font-editorial text-lg">8 Semanas</span>
+            </div>
+            <input type="range" id="sliderWeeks" min="2" max="20" step="1" value="8" class="w-full cursor-pointer" />
+            <div class="flex justify-between text-[10px] text-white/30 mt-1"><span>2 Semanas</span><span>20 Semanas</span></div>
+          </div>
+
+          <div>
+            <div class="flex justify-between text-xs tracking-wider uppercase mb-2">
+              <label for="sliderRate" class="text-white/60">Tarifa Semanal de Chárter</label>
+              <span id="dispRate" class="text-gold font-bold font-editorial text-lg">$450,000</span>
+            </div>
+            <input type="range" id="sliderRate" min="150000" max="1500000" step="25000" value="450000" class="w-full cursor-pointer" />
+            <div class="flex justify-between text-[10px] text-white/30 mt-1"><span>$150k</span><span>$1.5M</span></div>
+          </div>
+        </div>
+
+        <!-- Calculated Summary -->
+        <div class="bg-black/40 p-6 rounded-xl border border-white/10 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex justify-between items-center text-xs pb-3 border-b border-white/10">
+              <span class="text-white/60">Ingresos Brutos Estimados:</span>
+              <strong id="resGross" class="font-editorial text-xl text-white">$3,600,000</strong>
+            </div>
+
+            <div class="flex justify-between items-center text-xs pb-3 border-b border-white/10">
+              <span class="text-white/60">Costos Operativos (OpEx ~8.5%):</span>
+              <strong id="resOpex" class="font-editorial text-xl text-red-400">-$5,525,000</strong>
+            </div>
+
+            <div class="flex justify-between items-center text-xs pb-3 border-b border-white/10">
+              <span class="text-white/60">Costo Neto Anual de Propiedad:</span>
+              <strong id="resNet" class="font-editorial text-xl text-white">-$1,925,000</strong>
+            </div>
+
+            <div class="flex justify-between items-center pt-2">
+              <span class="text-xs uppercase tracking-wider text-[#B89B5E] font-semibold">Absorción de OpEx vía Chárter:</span>
+              <strong id="resYield" class="font-editorial text-3xl text-[#38BDF8]">65.2%</strong>
+            </div>
+          </div>
+
+          <a href="#contacto" class="mt-6 w-full text-center bg-[#B89B5E] text-[#0A1628] py-3 text-xs tracking-widest font-semibold uppercase hover:bg-white transition">
+            SOLICITAR MODELADO CONFIDENCIAL →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 10. PREGUNTAS FRECUENTES (FAQ) ================= -->
+  <section id="faq" class="py-24 lg:py-32">
+    <div class="max-w-4xl mx-auto px-6 lg:px-10">
+      <div class="reveal mb-16">
+        <p class="section-label">07 · PREGUNTAS FRECUENTES</p>
+        <h2 class="font-editorial text-4xl md:text-5xl mt-4 font-normal">
+          Lo que suelen preguntar<br><em class="text-gold not-italic font-normal">antes de firmar.</em>
+        </h2>
+      </div>
+
+      <div class="space-y-0 divide-y divide-[#0A1628]/10" id="faqList">
+        <div class="faq-item py-6 reveal">
+          <button class="faq-question w-full flex justify-between items-center text-left" onclick="toggleFaq(this)">
+            <span class="font-medium text-lg pr-6">¿Trabajan con propietarios que compran un superyate por primera vez?</span>
+            <span class="faq-icon text-gold text-2xl transition-transform">+</span>
+          </button>
+          <div class="faq-answer hidden pt-4 text-sm text-[#0A1628]/60 font-light leading-relaxed">
+            Sí. Gran parte de nuestros clientes son first-time buyers de alto patrimonio que requieren entender la viabilidad antes de comprometer capital. Nuestro mandato incluye educación del mercado, visitas confidenciales a astilleros y estructuración fiduciaria clara.
+          </div>
+        </div>
+
+        <div class="faq-item py-6 reveal">
+          <button class="faq-question w-full flex justify-between items-center text-left" onclick="toggleFaq(this)">
+            <span class="font-medium text-lg pr-6">¿Cuál es el ticket habitual de advisory?</span>
+            <span class="faq-icon text-gold text-2xl transition-transform">+</span>
+          </button>
+          <div class="faq-answer hidden pt-4 text-sm text-[#0A1628]/60 font-light leading-relaxed">
+            Operamos típicamente en activos desde USD 15M en adelante. No obstante, evaluamos mandatos de propulsión Mercury V12 o auditoría de dique seco con independencia del valor del casco.
+          </div>
+        </div>
+
+        <div class="faq-item py-6 reveal">
+          <button class="faq-question w-full flex justify-between items-center text-left" onclick="toggleFaq(this)">
+            <span class="font-medium text-lg pr-6">¿Cómo garantizan la discreción y el secreto profesional?</span>
+            <span class="faq-icon text-gold text-2xl transition-transform">+</span>
+          </button>
+          <div class="faq-answer hidden pt-4 text-sm text-[#0A1628]/60 font-light leading-relaxed">
+            Todos los mandatos se rigen bajo un acuerdo de no divulgación bilateral (NDA) de rango institucional. No publicamos nombres de armadores ni imágenes de activos sin autorización legal expresa.
+          </div>
+        </div>
+
+        <div class="faq-item py-6 reveal">
+          <button class="faq-question w-full flex justify-between items-center text-left" onclick="toggleFaq(this)">
+            <span class="font-medium text-lg pr-6">¿Por qué recomiendan motores Mercury Verado V12 para embarcaciones de apoyo?</span>
+            <span class="faq-icon text-gold text-2xl transition-transform">+</span>
+          </button>
+          <div class="faq-answer hidden pt-4 text-sm text-[#0A1628]/60 font-light leading-relaxed">
+            El Verado V12 de 600HP cuenta con embase direccionable independiente y caja automática de dos velocidades. Esto permite maniobras milimétricas con joystick y libera el espejo de popa respecto a intrabordas diésel pesados.
+          </div>
+        </div>
+
+        <div class="faq-item py-6 reveal">
+          <button class="faq-question w-full flex justify-between items-center text-left" onclick="toggleFaq(this)">
+            <span class="font-medium text-lg pr-6">¿Pueden representarme si resido fuera de Estados Unidos?</span>
+            <span class="faq-icon text-gold text-2xl transition-transform">+</span>
+          </button>
+          <div class="faq-answer hidden pt-4 text-sm text-[#0A1628]/60 font-light leading-relaxed">
+            Por supuesto. Operamos activamente en los corredores náuticos de Mónaco, Dubái, Ginebra y Miami con apoderados locales y coordinación bancaria transfronteriza.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 11. CONTACTO CONFIDENCIAL ================= -->
+  <section id="contacto" class="py-24 lg:py-32 bg-navy text-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-16">
+      
+      <div class="reveal">
+        <p class="section-label">08 · CONTACTO INSTITUCIONAL</p>
+        <h2 class="font-editorial text-4xl md:text-5xl lg:text-6xl mt-4 leading-tight font-normal">
+          Hablemos de<br><em class="text-gold not-italic font-normal">tu próximo activo.</em>
+        </h2>
+        <p class="mt-6 text-white/50 font-light leading-relaxed max-w-md">
+          Cuéntanos qué buscas: adquisición off-market, asignación de dique seco, ingeniería Mercury V12 o estructuración de flota. Respondemos en 24h bajo estricta reserva.
+        </p>
+        
+        <div class="mt-10 space-y-4 text-sm text-white/60">
+          <div class="flex items-center gap-3">
+            <span class="text-gold text-lg">📍</span>
+            <span>Miami (Brickell) · Monaco (Port Hercule) · Dubai (DIFC)</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-gold text-lg">🌐</span>
+            <span>English · Español · Français</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-gold text-lg">✉️</span>
+            <a href="mailto:advisory@karoline-advisory.com" class="text-gold hover:underline">advisory@karoline-advisory.com</a>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-[#38BDF8] text-lg">💬</span>
+            <a href="https://wa.me/13055550199" target="_blank" rel="noopener" class="text-[#38BDF8] hover:underline">WhatsApp VIP: +1 (305) 555-0199</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Institutional Contact Form -->
+      <form id="contactForm" class="reveal space-y-5 bg-white/5 p-8 rounded-2xl border border-white/10">
+        <div>
+          <label class="text-[10px] tracking-[0.18em] text-white/40 block mb-2 uppercase font-semibold">Nombre Completo del Mandante</label>
+          <input type="text" id="formName" required class="w-full bg-white/5 border border-white/20 px-4 py-3 text-sm text-white rounded focus:border-[#B89B5E] focus:outline-none" placeholder="ej. Jean-Luc Beaulieu · Family Principal" />
+        </div>
+
+        <div>
+          <label class="text-[10px] tracking-[0.18em] text-white/40 block mb-2 uppercase font-semibold">Correo Electrónico Corporativo</label>
+          <input type="email" id="formEmail" required class="w-full bg-white/5 border border-white/20 px-4 py-3 text-sm text-white rounded focus:border-[#B89B5E] focus:outline-none" placeholder="principal@beaulieu-holdings.ch" />
+        </div>
+
+        <div>
+          <label class="text-[10px] tracking-[0.18em] text-white/40 block mb-2 uppercase font-semibold">Área de Mandato</label>
+          <select id="formService" class="w-full bg-[#0A1628] border border-white/20 px-4 py-3 text-sm text-white rounded focus:border-[#B89B5E] focus:outline-none">
+            <option value="Construcción Nueva y Slot Dique Seco">Construcción Nueva & Slot de Dique Seco (Lürssen / Feadship / Benetti)</option>
+            <option value="Adquisición Off-Market">Adquisición Off-Market Confidencial</option>
+            <option value="Ingeniería Mercury Marine Verado V12">Ingeniería & Propulsión Mercury Marine Verado V12</option>
+            <option value="Estructuración Fiscal & Abanderamiento">Estructuración Fiscal, Abanderamiento & Chárter</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="text-[10px] tracking-[0.18em] text-white/40 block mb-2 uppercase font-semibold">Contexto del Requerimiento</label>
+          <textarea id="formMessage" rows="3" required class="w-full bg-white/5 border border-white/20 px-4 py-3 text-sm text-white rounded focus:border-[#B89B5E] focus:outline-none" placeholder="Eslora estimada, astillero de preferencia o puertos base..."></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-[#B89B5E] text-[#0A1628] px-8 py-4 text-xs font-semibold tracking-[0.15em] hover:bg-white transition uppercase">
+          ENVIAR SOLICITUD BAJO NDA →
+        </button>
+        <p id="formStatus" class="text-sm text-center hidden pt-2"></p>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- ================= 12. FOOTER ================= -->
+  <footer class="bg-[#050B14] border-t border-white/10 py-10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] tracking-[0.18em] text-white/40">
+      <div class="flex items-center gap-3">
+        <img src="assets/img/karoline-crest.svg" alt="Crest" class="w-5 h-5 opacity-70" />
+        <p>© 2026 KAROLINE · ULTRA-LUXURY YACHTING & SOVEREIGN ADVISORY</p>
+      </div>
+      <p>MIAMI · MONACO · DUBAI · GINEBRA · FORT LAUDERDALE</p>
+    </div>
+  </footer>
+
+  <!-- ================= 13. ASISTENTE FLOTANTE: KARO (IA NÁUTICA) ================= -->
+  <div id="karolineAssistant" aria-live="polite">
+    
+    <!-- Sliding Panel -->
+    <div id="assistantPanel" role="dialog" aria-label="Asistente Karoline">
+      <div id="assistantHeader">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full border border-[#B89B5E] flex items-center justify-center bg-black/40 text-sm">⚜️</div>
+          <div>
+            <p class="text-sm font-semibold tracking-wide text-white">KARO <span class="text-[9px] bg-[#B89B5E]/20 text-[#E5C478] px-1.5 py-0.5 rounded ml-1 border border-[#B89B5E]/30 font-bold">IA</span></p>
+            <p class="text-[9px] text-white/50 tracking-[0.12em] flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> EN LÍNEA · ASESORA DIGITAL
+            </p>
+          </div>
+        </div>
+        <button id="assistantClose" class="text-white/60 hover:text-white text-lg p-1" aria-label="Cerrar chat">✕</button>
+      </div>
+
+      <!-- Messages History -->
+      <div id="assistantMessages"></div>
+
+      <!-- Input Bar -->
+      <div id="assistantInputWrap">
+        <input id="assistantInput" type="text" placeholder="Pregunta sobre astilleros, Mercury V12, slots..." autocomplete="off" />
+        <button id="assistantSend" type="button">ENVIAR</button>
+      </div>
+    </div>
+
+    <!-- Toggle Button -->
+    <button id="assistantToggle" aria-label="Abrir asistente">
+      <span class="beacon-dot"></span>
+      <span class="text-xl">⚜️</span>
+    </button>
+  </div>
+
+  <!-- ================= 14. SCRIPTS FULL-STACK ================= -->
+  <script>
+    // ---------- MENÚ MÓVIL ----------
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+      mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+    }
+
+    // ---------- FAQ ACCORDION ----------
+    function toggleFaq(btn) {
+      const answer = btn.nextElementSibling;
+      const icon = btn.querySelector('.faq-icon');
+      answer.classList.toggle('hidden');
+      icon.textContent = answer.classList.contains('hidden') ? '+' : '−';
+    }
+
+    // ---------- FLAGSHIP GALLERY THUMBNAIL SWITCHER ----------
+    function setFlagshipImage(src, caption, count, btn) {
+      const mainImg = document.getElementById('flagshipImg');
+      const captionEl = document.getElementById('flagshipCaption');
+      const countEl = document.getElementById('flagshipCount');
+      if (mainImg) {
+        mainImg.style.opacity = '0.3';
+        setTimeout(() => {
+          mainImg.src = src;
+          mainImg.style.opacity = '1';
+        }, 150);
+      }
+      if (captionEl) captionEl.textContent = caption;
+      if (countEl) countEl.textContent = count;
+
+      document.querySelectorAll('.flagship-thumb').forEach(t => {
+        t.classList.remove('border-[#B89B5E]', 'opacity-100');
+        t.classList.add('border-white/20', 'opacity-60');
+      });
+      btn.classList.remove('border-white/20', 'opacity-60');
+      btn.classList.add('border-[#B89B5E]', 'opacity-100');
+    }
+
+    // ---------- ASTILLEROS FILTER BUTTONS (SALMAN STYLE) ----------
+    const filterButtons = document.querySelectorAll('.yard-filter');
+    const yardCards = document.querySelectorAll('#shipyardGrid article');
+    const yardCountBadge = document.getElementById('yardCount');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const cat = btn.getAttribute('data-filter');
+        filterButtons.forEach(b => {
+          b.classList.remove('bg-[#0A1628]', 'text-white');
+          b.classList.add('border', 'border-[#0A1628]/20', 'text-[#0A1628]/70');
+        });
+        btn.classList.remove('border', 'border-[#0A1628]/20', 'text-[#0A1628]/70');
+        btn.classList.add('bg-[#0A1628]', 'text-white');
+
+        let visible = 0;
+        yardCards.forEach(card => {
+          const cardCat = card.getAttribute('data-cat') || '';
+          if (cat === 'all' || cardCat.includes(cat)) {
+            card.style.display = 'flex';
+            visible++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+        if (yardCountBadge) yardCountBadge.textContent = `${visible} ASTILLEROS MOSTRADOS`;
+      });
+    });
+
+    // ---------- CALCULADORA DE CHÁRTER & OPEX ----------
+    const sliderPrice = document.getElementById('sliderPrice');
+    const sliderWeeks = document.getElementById('sliderWeeks');
+    const sliderRate = document.getElementById('sliderRate');
+
+    const dispPrice = document.getElementById('dispPrice');
+    const dispWeeks = document.getElementById('dispWeeks');
+    const dispRate = document.getElementById('dispRate');
+
+    const resGross = document.getElementById('resGross');
+    const resOpex = document.getElementById('resOpex');
+    const resNet = document.getElementById('resNet');
+    const resYield = document.getElementById('resYield');
+
+    function updateCalculator() {
+      if (!sliderPrice || !sliderWeeks || !sliderRate) return;
+      const price = parseFloat(sliderPrice.value);
+      const weeks = parseInt(sliderWeeks.value, 10);
+      const rate = parseFloat(sliderRate.value);
+
+      if (dispPrice) dispPrice.textContent = '$' + price.toLocaleString('en-US');
+      if (dispWeeks) dispWeeks.textContent = weeks + ' Semanas';
+      if (dispRate) dispRate.textContent = '$' + rate.toLocaleString('en-US');
+
+      const gross = weeks * rate;
+      const opex = price * 0.085;
+      const net = gross - opex;
+      const absorption = Math.min(100, Math.round((gross / opex) * 100));
+
+      if (resGross) resGross.textContent = '$' + Math.round(gross).toLocaleString('en-US');
+      if (resOpex) resOpex.textContent = '-$' + Math.round(opex).toLocaleString('en-US');
+      if (resNet) resNet.textContent = (net >= 0 ? '+$' : '-$') + Math.abs(Math.round(net)).toLocaleString('en-US');
+      if (resYield) resYield.textContent = absorption + '%';
+    }
+
+    [sliderPrice, sliderWeeks, sliderRate].forEach(s => {
+      if (s) s.addEventListener('input', updateCalculator);
+    });
+    updateCalculator();
+
+    // ---------- CONTACT FORM TO WHATSAPP ----------
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('formName').value;
+        const email = document.getElementById('formEmail').value;
+        const service = document.getElementById('formService').value;
+        const message = document.getElementById('formMessage').value;
+
+        if (formStatus) {
+          formStatus.textContent = '✓ Solicitud registrada bajo NDA. Conectando con el concierge...';
+          formStatus.className = 'text-xs text-center text-[#E5C478] block pt-2';
+        }
+
+        const waMsg = `⚜️ *SOLICITUD DE MANDATO CONFIDENCIAL · KAROLINE*\n\n` +
+          `*Principal:* ${name}\n` +
+          `*Email:* ${email}\n` +
+          `*Mandato:* ${service}\n` +
+          `*Contexto:* ${message}\n\n` +
+          `_Enviado vía portal karolie web bajo estricto NDA._`;
+
+        const waUrl = `https://wa.me/13055550199?text=${encodeURIComponent(waMsg)}`;
+        setTimeout(() => {
+          window.open(waUrl, '_blank');
+        }, 800);
+      });
+    }
+
+    // ---------- ASISTENTE IA KARO (HOMÓLOGO A SALMA) ----------
+    (function () {
+      const toggle = document.getElementById('assistantToggle');
+      const panel = document.getElementById('assistantPanel');
+      const closeBtn = document.getElementById('assistantClose');
+      const messagesEl = document.getElementById('assistantMessages');
+      const input = document.getElementById('assistantInput');
+      const sendBtn = document.getElementById('assistantSend');
+      const heroChatBtn = document.getElementById('heroChatBtn');
+      let started = false;
+
+      const KB = [
+        {
+          keys: ['flagship', 'sovereign', '115m', 'insignia', 'buque', 'barco'],
+          reply: 'El Project Sovereign (115M) es nuestro megayate insignia en acero y aluminio. Diseñado junto a Lürssen y Feadship, cuenta con propulsión híbrida diésel-eléctrica, 6.500 NM de autonomía, helipuerto comercial y hangar para dos chase boats con motores Mercury Verado V12 600HP. El slot de entrega está comprometido al 75% para finales de 2027.'
+        },
+        {
+          keys: ['astillero', 'shipyard', 'lurssen', 'feadship', 'benetti', 'oceanco', 'sanlorenzo', 'abeking', 'amels', 'mangusta', 'westport'],
+          reply: 'Gestionamos relaciones directas con los 10 mejores astilleros del mundo: Lürssen, Feadship, Oceanco, Benetti, Sanlorenzo, Amels/Damen, Abeking & Rasmussen, Mercury Marine, Mangusta y Westport. Auditamos contratos, hitos de pago en cuentas escrow y reservas de dique seco. ¿Te interesa alguno en particular?'
+        },
+        {
+          keys: ['mercury', 'v12', 'motor', 'propulsion', 'propulsión', 'performance', 'verado', '600hp'],
+          reply: 'Mercury Marine es la especialidad técnica de Carolina en Miami. El Verado V12 de 7.6L y 600 HP cuenta con embase direccionable y transmisión de dos velocidades. Permite montajes cuádruples y quíntuples de hasta 3.000 HP con joystick, optimizando maniobra y espacio interior en mega-tenders.'
+        },
+        {
+          keys: ['precio', 'costo', 'cuanto', 'cuánto', 'ticket', 'presupuesto', 'slots', 'inversion', 'inversión'],
+          reply: 'Operamos habitualmente en activos desde USD 15M hasta más de 200M en gigayachts a medida. Las condiciones de pago se escalonan según hitos de quilla, casco y botadura. ¿Deseas modelar el rendimiento de chárter o evaluar una adquisición específica?'
+        },
+        {
+          keys: ['fiscal', 'impuesto', 'tax', 'bandera', 'flag', 'miami', 'monaco', 'dubai'],
+          reply: 'Optimizamos la operación fiscal en 3 corredores: Florida ofrece un tope máximo de sales tax de solo $18.000 USD; Mónaco y Francia permiten exención de IVA bajo chárter comercial; y Dubái ofrece zonas francas marítimas con 0% de impuestos sobre ganancias de capital.'
+        },
+        {
+          keys: ['carolina', 'karoline', 'fiu', 'quien es', 'perfil', 'estudios', 'experiencia'],
+          reply: 'Carolina cuenta con una Maestría en Finanzas y Negocios Internacionales de FIU Chapman Graduate School, combinada con su trayectoria en propulsión marina Mercury Marine en Miami y acceso confidencial a los consejos directivos de los astilleros europeos.'
+        },
+        {
+          keys: ['contacto', 'hablar', 'asesor', 'cita', 'agendar', 'mandato', 'reunion', 'whatsapp'],
+          reply: 'Puedes agendar una consulta privada directamente con Carolina bajo NDA. Atendemos en Brickell (Miami), Yacht Club de Mónaco o Dubái Harbour. También puedes escribirnos directo al WhatsApp +1 (305) 555-0199.'
+        },
+        {
+          keys: ['hola', 'buenas', 'hello', 'hi', 'hey', 'buenos dias', 'buenas tardes'],
+          reply: 'Hola. Soy KARO, la asesora digital de KAROLINE. Puedo informarte sobre asignación de diques secos, propulsión Mercury V12, nuestro buque insignia de 115m o coordinar una cita con Carolina. ¿Por dónde empezamos?'
+        }
+      ];
+
+      const quickReplies = ['⚓ Buque Insignia', '🏛️ Top 10 Astilleros', '⚡ Mercury V12', '📊 Calculadora Chárter', '📅 Agendar Mandato'];
+
+      function addMsg(text, who = 'bot') {
+        const div = document.createElement('div');
+        div.className = 'msg ' + who;
+        div.textContent = text;
+        messagesEl.appendChild(div);
+        messagesEl.scrollTop = messagesEl.scrollHeight;
+        return div;
+      }
+
+      function addQuickReplies() {
+        const wrap = document.createElement('div');
+        wrap.className = 'quick-replies';
+        quickReplies.forEach(q => {
+          const b = document.createElement('button');
+          b.textContent = q;
+          b.addEventListener('click', () => handleUserInput(q));
+          wrap.appendChild(b);
+        });
+        messagesEl.appendChild(wrap);
+        messagesEl.scrollTop = messagesEl.scrollHeight;
+      }
+
+      function findReply(text) {
+        const lower = text.toLowerCase();
+        for (const item of KB) {
+          if (item.keys.some(k => lower.includes(k))) return item.reply;
+        }
+        return 'Excelente consulta. Ese detalle lo analizamos a nivel fiduciario y técnico en privado. ¿Deseas que te comunique directamente con Carolina o prefieres agendar mediante el formulario?';
+      }
+
+      function handleUserInput(text) {
+        if (!text.trim()) return;
+        addMsg(text, 'user');
+        input.value = '';
+        setTimeout(() => {
+          const reply = findReply(text);
+          addMsg(reply, 'bot');
+          if (/mandato|contacto|cita|formulario/i.test(reply)) {
+            const wrap = document.createElement('div');
+            wrap.className = 'quick-replies';
+            const goBtn = document.createElement('button');
+            goBtn.textContent = 'Ir al formulario de contacto →';
+            goBtn.addEventListener('click', () => {
+              document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' });
+              panel.classList.remove('open');
+            });
+            wrap.appendChild(goBtn);
+            messagesEl.appendChild(wrap);
+            messagesEl.scrollTop = messagesEl.scrollHeight;
+          }
+        }, 400);
+      }
+
+      function startConversation() {
+        if (started) return;
+        started = true;
+        addMsg('Bienvenido a KAROLINE Haute Mer. Soy KARO, tu asesora digital especializada en superyates e ingeniería naval. ¿Qué área deseas explorar?', 'bot');
+        setTimeout(addQuickReplies, 250);
+      }
+
+      window.askKaro = function(prompt) {
+        panel.classList.add('open');
+        startConversation();
+        setTimeout(() => handleUserInput(prompt), 300);
+      };
+
+      if (toggle) {
+        toggle.addEventListener('click', () => {
+          panel.classList.toggle('open');
+          if (panel.classList.contains('open')) startConversation();
+        });
+      }
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', () => panel.classList.remove('open'));
+      }
+
+      if (heroChatBtn) {
+        heroChatBtn.addEventListener('click', () => {
+          panel.classList.add('open');
+          startConversation();
+        });
+      }
+
+      if (sendBtn && input) {
+        sendBtn.addEventListener('click', () => handleUserInput(input.value));
+        input.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') handleUserInput(input.value);
+        });
+      }
+    })();
+
+    // ---------- GSAP ANIMATIONS & COUNTERS ----------
+    window.addEventListener('load', () => {
+      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Reveals
+        gsap.utils.toArray('.reveal').forEach((el) => {
+          gsap.fromTo(el,
+            { opacity: 0, y: 28 },
+            {
+              opacity: 1, y: 0, duration: 0.85, ease: 'power2.out',
+              scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
+            }
+          );
+        });
+
+        // Parallax hero image
+        const heroImg = document.querySelector('.hero-img');
+        if (heroImg) {
+          gsap.to(heroImg, {
+            y: '18%', ease: 'none',
+            scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+          });
+        }
+      } else {
+        // Fallback observer
+        const obs = new IntersectionObserver((entries) => {
+          entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+      }
+    });
+  </script>
+</body>
+</html>
