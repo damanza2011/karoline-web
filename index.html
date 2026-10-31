@@ -75,6 +75,7 @@
       <!-- Desktop Nav -->
       <nav class="nav-menu" role="navigation">
         <a href="#about" class="nav-link" data-i18n="nav.about">Profile</a>
+        <a href="flagship.html" class="nav-link" style="color: #38BDF8; font-weight: 700;">★ Proyecto Insignia UX</a>
         <a href="#shipyards" class="nav-link" data-i18n="nav.shipyards">Global Shipyards</a>
         <a href="#services" class="nav-link" data-i18n="nav.services">Advisory</a>
         <a href="advisory.html" class="nav-link" style="color: #E5C478;" data-i18n="nav.dossier">Fleet Intelligence</a>
@@ -210,10 +211,21 @@
         </p>
       </div>
 
+      <!-- Salman UX Interactive Filter Pills Bar -->
+      <div class="portfolio-filters" role="group" aria-label="Filtrar astilleros por especialidad">
+        <button class="filter-btn is-active" type="button" data-filter="all">Todos (10)</button>
+        <button class="filter-btn" type="button" data-filter="gigayachts">Gigayachts (100m+)</button>
+        <button class="filter-btn" type="button" data-filter="northern-europe">Bespoke Holanda & Alemania</button>
+        <button class="filter-btn" type="button" data-filter="italian-couture">Alta Costura Italiana</button>
+        <button class="filter-btn" type="button" data-filter="performance">Propulsión V12 & Velocidad</button>
+        <button class="filter-btn" type="button" data-filter="expedition">Expedición & Apoyo</button>
+        <span class="filters-count-badge" id="shipyards-count-badge">10 Astilleros Mostrados</span>
+      </div>
+
       <!-- Shipyards Showcase Cards (Top 10 Global Shipyards Gallery) -->
       <div class="shipyard-gallery-grid">
         <!-- 1. Lürssen -->
-        <article class="shipyard-gallery-card">
+        <article class="shipyard-gallery-card" data-category="gigayachts northern-europe">
           <div class="shipyard-photo-wrap">
             <img 
               src="https://images.unsplash.com/photo-1569263979104-865ab7cd8d17?auto=format&fit=crop&w=1200&q=85" 
@@ -253,7 +265,7 @@
         </article>
 
         <!-- 2. Feadship -->
-        <article class="shipyard-gallery-card">
+        <article class="shipyard-gallery-card" data-category="gigayachts northern-europe">
           <div class="shipyard-photo-wrap">
             <img 
               src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=85" 
@@ -293,7 +305,7 @@
         </article>
 
         <!-- 3. Oceanco -->
-        <article class="shipyard-gallery-card">
+        <article class="shipyard-gallery-card" data-category="gigayachts northern-europe">
           <div class="shipyard-photo-wrap">
             <img 
               src="https://images.unsplash.com/photo-1505705694340-019e1e335916?auto=format&fit=crop&w=1200&q=85" 
@@ -333,7 +345,7 @@
         </article>
 
         <!-- 4. Benetti Yachts -->
-        <article class="shipyard-gallery-card">
+        <article class="shipyard-gallery-card" data-category="gigayachts italian-couture">
           <div class="shipyard-photo-wrap">
             <img 
               src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=1200&q=85" 
@@ -373,7 +385,7 @@
         </article>
 
         <!-- 5. Sanlorenzo Yachts -->
-        <article class="shipyard-gallery-card">
+        <article class="shipyard-gallery-card" data-category="italian-couture expedition">
           <div class="shipyard-photo-wrap">
             <img 
               src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=85" 
@@ -413,7 +425,7 @@
         </article>
 
         <!-- 6. Amels & Damen Yachting -->
-        <article class="shipyard-gallery-card">
+        <article class="shipyard-gallery-card" data-category="northern-europe expedition">
           <div class="shipyard-photo-wrap">
             <img 
               src="https://images.unsplash.com/photo-1517400508447-f8dd518b86db?auto=format&fit=crop&w=1200&q=85" 
@@ -453,7 +465,7 @@
         </article>
 
         <!-- 7. Abeking & Rasmussen -->
-        <article class="shipyard-gallery-card">
+        <article class="shipyard-gallery-card" data-category="gigayachts northern-europe">
           <div class="shipyard-photo-wrap">
             <img 
               src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1200&q=85" 
@@ -493,7 +505,7 @@
         </article>
 
         <!-- 8. Mercury Marine High-Performance -->
-        <article class="shipyard-gallery-card" style="border-color: rgba(56, 189, 248, 0.4);">
+        <article class="shipyard-gallery-card" data-category="performance" style="border-color: rgba(56, 189, 248, 0.4);">
           <div class="shipyard-photo-wrap">
             <img 
               src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=1200&q=85" 
@@ -533,7 +545,7 @@
         </article>
 
         <!-- 9. Mangusta & Baglietto -->
-        <article class="shipyard-gallery-card">
+        <article class="shipyard-gallery-card" data-category="italian-couture performance">
           <div class="shipyard-photo-wrap">
             <img 
               src="https://images.unsplash.com/photo-1605281317010-fe5ffe798166?auto=format&fit=crop&w=1200&q=85" 
@@ -573,7 +585,7 @@
         </article>
 
         <!-- 10. Westport Yachts & Christensen -->
-        <article class="shipyard-gallery-card">
+        <article class="shipyard-gallery-card" data-category="performance">
           <div class="shipyard-photo-wrap">
             <img 
               src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1200&q=85" 

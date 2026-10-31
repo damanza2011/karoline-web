@@ -164,7 +164,84 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 5. Toast Notification Service
+  // 5. Flagship Interactive Gallery Switcher (like Salman Cangrejo Azul)
+  const flagshipMainImg = document.querySelector('#flagship-main-img');
+  const flagshipCaptionTitle = document.querySelector('#flagship-caption-title');
+  const flagshipSlideIndex = document.querySelector('#flagship-slide-index');
+  const thumbBtns = document.querySelectorAll('.gallery-thumb-btn');
+
+  thumbBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const newSrc = btn.getAttribute('data-img-src');
+      const newCaption = btn.getAttribute('data-img-caption');
+      const newIndex = btn.getAttribute('data-index');
+
+      if (flagshipMainImg && newSrc) {
+        flagshipMainImg.style.opacity = '0.4';
+        setTimeout(() => {
+          flagshipMainImg.src = newSrc;
+          flagshipMainImg.style.opacity = '1';
+        }, 180);
+      }
+      if (flagshipCaptionTitle && newCaption) {
+        flagshipCaptionTitle.textContent = newCaption;
+      }
+      if (flagshipSlideIndex && newIndex) {
+        flagshipSlideIndex.textContent = newIndex;
+      }
+
+      thumbBtns.forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+    });
+  });
+
+  // 6. Interactive Shipyard & Fleet Filter Bar (like Salman portfolio filters)
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const shipyardCards = document.querySelectorAll('.shipyard-gallery-card');
+  const countBadge = document.querySelector('#shipyards-count-badge');
+
+  if (filterBtns.length > 0) {
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const filterVal = btn.getAttribute('data-filter');
+
+        filterBtns.forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+
+        let visibleCount = 0;
+        shipyardCards.forEach(card => {
+          const category = card.getAttribute('data-category') || '';
+          if (filterVal === 'all' || category.includes(filterVal)) {
+            card.style.display = 'flex';
+            card.style.opacity = '0';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transition = 'opacity 0.35s ease, transform 0.4s ease';
+            }, 30);
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        if (countBadge) {
+          const state = store.getState();
+          const lang = state.currentLang;
+          if (lang === 'fr') {
+            countBadge.textContent = `${visibleCount} Chantiers Affichés`;
+          } else if (lang === 'es') {
+            countBadge.textContent = `${visibleCount} Astilleros Mostrados`;
+          } else {
+            countBadge.textContent = `${visibleCount} Shipyards Shown`;
+          }
+        }
+      });
+    });
+  }
+
+  // 7. Toast Notification Service
   function showLuxuryToast(title, message) {
     let container = document.querySelector('.toast-luxury-container');
     if (!container) {

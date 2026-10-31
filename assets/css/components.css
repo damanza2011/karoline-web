@@ -672,3 +672,437 @@
     gap: 1.5rem;
   }
 }
+
+/* ==========================================================================
+   Salman & Aviator Inspired UX Components (Flagship, Specs, Gallery, Filters)
+   ========================================================================== */
+
+/* 1. Flagship Spotlight Grid */
+.flagship-spotlight {
+  background: radial-gradient(circle at 10% 20%, rgba(17, 27, 49, 0.8) 0%, rgba(6, 11, 20, 0.98) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 20px;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  margin-bottom: 4rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(212, 175, 55, 0.2);
+}
+
+.flagship-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(2rem, 3.5vw, 3.5rem);
+  align-items: center;
+}
+
+.flagship-kicker-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.flagship-step-num {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #D4AF37;
+  letter-spacing: 0.15em;
+  padding: 0.25rem 0.6rem;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 6px;
+}
+
+.flagship-kicker-text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #E2E8F0;
+}
+
+.flagship-title {
+  font-size: clamp(2rem, 3.2vw, 2.85rem);
+  font-weight: 900;
+  color: #FFFFFF;
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+
+.flagship-title em {
+  font-style: italic;
+  font-family: 'Cinzel', serif;
+  color: #E5C478;
+}
+
+.flagship-location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #38BDF8;
+  margin-bottom: 1.25rem;
+}
+
+.flagship-lead {
+  font-size: 0.96rem;
+  color: #CBD5E1;
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+}
+
+/* Specs Definition List (like Salman's dl.specs) */
+.specs-lux-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+  padding: 1.25rem;
+  background: rgba(6, 11, 20, 0.65);
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  border-radius: 12px;
+}
+
+.spec-lux-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.spec-lux-item dt {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #94A3B8;
+  margin-bottom: 0.25rem;
+}
+
+.spec-lux-item dd {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #F8FAFC;
+  margin: 0;
+  font-family: 'Cinzel', serif;
+}
+
+.spec-lux-item dd small {
+  font-size: 0.7rem;
+  color: #D4AF37;
+  margin-left: 0.2rem;
+}
+
+/* Availability & Build Slot Progress Bar */
+.availability-box {
+  margin-bottom: 2rem;
+  background: rgba(11, 19, 37, 0.5);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  border-radius: 10px;
+  padding: 0.85rem 1.15rem;
+}
+
+.availability-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #E2E8F0;
+  margin-bottom: 0.5rem;
+}
+
+.availability-header strong {
+  color: #D4AF37;
+  font-size: 0.95rem;
+}
+
+.availability-track {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.availability-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #AA820A 0%, #D4AF37 70%, #38BDF8 100%);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+  transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Flagship Actions */
+.flagship-actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  align-items: center;
+}
+
+/* Flagship Interactive Gallery (Main + Thumbs) */
+.flagship-gallery-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.gallery-main-container {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3.1;
+  background: #0B1325;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+.gallery-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+.gallery-main-container:hover .gallery-main-img {
+  transform: scale(1.04);
+}
+
+.gallery-caption-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(180deg, transparent 0%, rgba(6, 11, 20, 0.9) 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: #FFFFFF;
+  font-size: 0.85rem;
+}
+
+.gallery-caption-title {
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.gallery-slide-counter {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #D4AF37;
+  letter-spacing: 0.1em;
+}
+
+.gallery-thumbs-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.65rem;
+}
+
+.gallery-thumb-btn {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  background: #0B1325;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.gallery-thumb-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-thumb-btn:hover {
+  border-color: rgba(212, 175, 55, 0.6);
+}
+
+.gallery-thumb-btn.is-active {
+  border-color: #D4AF37;
+  box-shadow: 0 0 14px rgba(212, 175, 55, 0.45);
+}
+
+.gallery-thumb-btn.is-active img {
+  transform: scale(1.08);
+}
+
+/* 2. Interactive Category Filter Bar (like Salman filters) */
+.portfolio-filters {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.18);
+}
+
+.filter-btn {
+  padding: 0.55rem 1.15rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94A3B8;
+  background: rgba(17, 27, 49, 0.5);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  color: #FFFFFF;
+  border-color: #D4AF37;
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.filter-btn.is-active {
+  background: linear-gradient(135deg, #D4AF37 0%, #AA820A 100%);
+  color: #060B14;
+  border-color: #D4AF37;
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.3);
+}
+
+.filters-count-badge {
+  margin-left: auto;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #D4AF37;
+}
+
+/* 3. Executive Mandate Process (01-04) */
+.process-grid-lux {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.process-card-lux {
+  background: linear-gradient(180deg, rgba(17, 27, 49, 0.7) 0%, rgba(8, 14, 27, 0.95) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  border-radius: 14px;
+  padding: 1.75rem 1.4rem;
+  position: relative;
+  transition: transform 0.35s ease, border-color 0.35s ease;
+}
+
+.process-card-lux:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212, 175, 55, 0.6);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.process-step-indicator {
+  font-size: 1.6rem;
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  color: #D4AF37;
+  margin-bottom: 0.75rem;
+}
+
+.process-card-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 0.5rem;
+}
+
+.process-card-desc {
+  font-size: 0.85rem;
+  color: #CBD5E1;
+  line-height: 1.6;
+}
+
+/* 4. Luxury FAQ Accordion */
+.faq-lux-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 900px;
+  margin: 0 auto 4rem auto;
+}
+
+.faq-lux-item {
+  background: rgba(17, 27, 49, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.faq-lux-item[open] {
+  border-color: rgba(212, 175, 55, 0.5);
+  background: rgba(17, 27, 49, 0.85);
+}
+
+.faq-lux-summary {
+  padding: 1.25rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  user-select: none;
+}
+
+.faq-lux-summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-lux-summary svg {
+  transition: transform 0.3s ease;
+  color: #D4AF37;
+}
+
+.faq-lux-item[open] .faq-lux-summary svg {
+  transform: rotate(180deg);
+}
+
+.faq-lux-content {
+  padding: 0 1.5rem 1.4rem 1.5rem;
+  font-size: 0.9rem;
+  color: #CBD5E1;
+  line-height: 1.7;
+}
+
+@media (max-width: 992px) {
+  .flagship-grid {
+    grid-template-columns: 1fr;
+  }
+  .flagship-gallery-wrap {
+    order: -1;
+  }
+  .specs-lux-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .process-grid-lux {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .specs-lux-grid {
+    grid-template-columns: 1fr;
+  }
+  .process-grid-lux {
+    grid-template-columns: 1fr;
+  }
+  .filters-count-badge {
+    display: none;
+  }
+}
