@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- Outer Circular Shield with Gold Bezel -->
+  <circle cx="60" cy="60" r="56" fill="#060B14" stroke="url(#goldGrad)" stroke-width="2.5"/>
+  <circle cx="60" cy="60" r="50" stroke="rgba(212, 175, 55, 0.3)" stroke-width="1" stroke-dasharray="3 3"/>
+  
+  <!-- Royal Maritime Crown at Top -->
+  <path d="M48 28L52 34L60 26L68 34L72 28L70 38H50L48 28Z" fill="url(#goldGrad)"/>
+  <circle cx="60" cy="24" r="2" fill="#D4AF37"/>
+  <circle cx="48" cy="26" r="1.5" fill="#E5C478"/>
+  <circle cx="72" cy="26" r="1.5" fill="#E5C478"/>
+
+  <!-- Golden Sovereign Anchor & Compass Star Fusion -->
+  <path d="M60 40V82M60 82C48 82 40 74 40 64M60 82C72 82 80 74 80 64" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M48 50H72" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round"/>
+  
+  <!-- 8-Pointed Marine Compass Star in Center -->
+  <path d="M60 52L63 60L71 63L63 66L60 74L57 66L49 63L57 60L60 52Z" fill="url(#goldGrad)"/>
+
+  <!-- Monogram K Cutout in Core -->
+  <circle cx="60" cy="63" r="7" fill="#060B14" stroke="#D4AF37" stroke-width="1.5"/>
+  <path d="M58 59V67M58 63L62 59M58 63L62 67" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Lower Flukes / Ocean Waves Accent -->
+  <path d="M36 68C44 72 52 74 60 74C68 74 76 72 84 68" stroke="#0EA5E9" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+
+  <!-- Linear Gradients -->
+  <defs>
+    <linearGradient id="goldGrad" x1="20" y1="20" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFF1CE"/>
+      <stop offset="35%" stop-color="#E5C478"/>
+      <stop offset="70%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#997A23"/>
+    </linearGradient>
+  </defs>
+</svg>

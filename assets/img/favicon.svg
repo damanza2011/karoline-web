@@ -1,15 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="16" fill="#0B1325"/>
-  <!-- Gold Compass / Nautical Star -->
-  <path d="M32 8L36 28L56 32L36 36L32 56L28 36L8 32L28 28L32 8Z" fill="url(#goldGrad)"/>
-  <!-- Elegant Monogram K Accent -->
-  <circle cx="32" cy="32" r="7" fill="#0B1325" stroke="#D4AF37" stroke-width="2"/>
-  <path d="M30 28V36M30 32L34 28M30 32L34 36" stroke="#D4AF37" stroke-width="1.8" stroke-linecap="round"/>
+  <rect width="64" height="64" rx="14" fill="#060B14"/>
+  <circle cx="32" cy="32" r="28" stroke="url(#goldGrad)" stroke-width="1.8"/>
+  <path d="M32 12V48M32 48C24 48 18 42 18 34M32 48C40 48 46 42 46 34" stroke="url(#goldGrad)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M24 22H40" stroke="url(#goldGrad)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M32 23L34 29L40 31L34 33L32 39L30 33L24 31L30 29L32 23Z" fill="url(#goldGrad)"/>
   <defs>
-    <linearGradient id="goldGrad" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#E5C478"/>
-      <stop offset="0.5" stop-color="#D4AF37"/>
-      <stop offset="1" stop-color="#997A23"/>
+    <linearGradient id="goldGrad" x1="10" y1="10" x2="54" y2="54" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFF1CE"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#997A23"/>
     </linearGradient>
   </defs>
 </svg>

@@ -1,63 +1,104 @@
 /**
  * KAROLINE · Haute Mer & Ultra-Luxury Advisory
  * Trilingual Master Dictionary (EN · ES · FR)
- * Elite Maritime, International Finance & Mercury Propulsion Lexicon
+ * Elite Maritime, International Finance, Global Shipyards & Mercury Propulsion Lexicon
  */
 
 export const TRANSLATIONS = {
   en: {
     nav: {
       about: "Profile",
-      credentials: "FIU & Mercury",
+      shipyards: "Global Shipyards",
       services: "Advisory",
+      dossier: "Fleet Intelligence",
       cases: "Case Studies",
       calculator: "Yacht ROI Calc",
-      contact: "VIP Inquiries",
-      bookBtn: "Book Strategy Call"
+      contact: "VIP Vault",
+      bookBtn: "Private Mandate"
     },
     hero: {
-      badge: "FIU MIAMI · MERCURY MARINE · MONACO YACHTING ADVISORY",
-      headline: "Navigating Ultra-Luxury Yachting & Global Maritime Finance",
-      description: "Executive advisory for elite shipyards, family offices, and high-performance marine corporations. Bridging cross-border finance, UHNWI marketing, and Mercury Marine propulsion architecture across Miami, Fort Lauderdale, and Monaco.",
-      ctaPrimary: "Schedule Confidential Briefing",
+      badge: "FIU MIAMI · MERCURY MARINE · MONACO · DUBAI MARITIME ADVISORY",
+      headline: "Navigating Ultra-Luxury Yachting & Sovereign Maritime Capital",
+      description: "Discreet advisory for billionaire yacht owners, elite shipyards, family offices, and high-performance marine corporations. Bridging cross-border finance, UHNWI acquisitions, and Mercury Marine propulsion architecture across Miami, Monaco, and Dubai.",
+      ctaPrimary: "Request Private Client Dossier",
       ctaSecondary: "Consult KAROLINE AI Concierge",
       profileRole: "Managing Principal & Maritime Strategist",
       credential1: "MS in International Business & Finance · FIU Chapman Graduate School",
-      credential2: "High-Performance Propulsion Strategy & Mercury Marine V12 Ecosystem",
-      credential3: "$180M+ in Superyacht Asset Advisory, Charters & Cross-Border Deals",
-      credential4: "Trilingual Advisory: English · Español · Français"
+      credential2: "High-Performance Marine Propulsion Strategy & Mercury Marine V12 Ecosystem",
+      credential3: "$180M+ in Superyacht Asset Advisory, Charters & Off-Market Acquisitions",
+      credential4: "Trilingual Executive Advisory: English · Español · Français"
     },
     metrics: {
       m1Num: "$180M+",
       m1Label: "Maritime Assets Advised",
-      m2Num: "3 Global Hubs",
-      m2Label: "Miami · Fort Lauderdale · Monaco",
+      m2Num: "5 Global Hubs",
+      m2Label: "Miami · Monaco · Dubai · Fort Lauderdale · Geneva",
       m3Num: "Mercury V12",
       m3Label: "High-Performance Propulsion Expert",
-      m4Num: "FIU Graduate",
+      m4Num: "FIU Chapman",
       m4Label: "International Finance & Business"
     },
-    services: {
-      tag: "STRATEGIC CAPABILITIES",
-      title: "Bespoke Maritime & Financial Advisory",
-      desc: "Delivering institutional rigor, proprietary valuation models, and high-impact commercial campaigns to the world's most prestigious yacht builders and maritime investors.",
-      s1Title: "Superyacht Market Entry & UHNWI Brand Elevation",
-      s1Desc: "Repositioning luxury shipyards and brokerage houses to capture ultra-high-net-worth buyers across North America and the Mediterranean. Combining Monaco prestige with Miami boat show dynamism.",
-      s1Perk1: "Cross-border brand architecture & digital positioning",
-      s1Perk2: "VIP client acquisition at Monaco, Cannes & Miami Boat Show",
-      s1Perk3: "Fractional ownership & charter syndication models",
+    shipyardsSection: {
+      tag: "THE PINNACLE OF GLOBAL SHIPBUILDING",
+      title: "Elite Shipyards & World Maritime Capitals",
+      desc: "Direct strategic relationships with the Northern European and Mediterranean shipbuilding masters, paired with American high-performance propulsion dominance.",
+      s1Name: "Lürssen Yachts",
+      s1Loc: "Bremen, Germany · 80m - 180m+",
+      s1Desc: "The undisputed global authority in custom megayacht engineering. Masters of steel, displacement volume, and sovereign naval discretion.",
       
-      s2Title: "Marine Propulsion Strategy & Mercury Marine Ecosystem",
-      s2Desc: "Technical and commercial consulting on high-performance marine power solutions, specializing in Mercury Marine Verado V12 outboard integration and dealer network expansion across the Americas.",
-      s2Perk1: "Builder OEM integration and propulsion lifecycle analysis",
-      s2Perk2: "Dealer network restructuring & territory expansion",
-      s2Perk3: "High-speed luxury tender & center console power optimization",
+      s2Name: "Feadship",
+      s2Loc: "Haarlem / Aalsmeer, Netherlands · 50m - 110m+",
+      s2Desc: "Pure custom perfection. Legendary Dutch craftsmanship, bespoke naval architecture, and unrivaled resale value preservation.",
 
-      s3Title: "International Maritime Finance & Asset Structuring",
-      s3Desc: "Comprehensive financial modeling for superyacht acquisitions, flag state structuring (Cayman, Malta, Marshall Islands), charter yield forecasting, and family office maritime portfolio due diligence.",
-      s3Perk1: "OpEx & CapEx optimization models for 40m+ vessels",
-      s3Perk2: "Cross-border leasing, VAT & maritime fiscal structuring",
-      s3Perk3: "Charter revenue projection & Net Yield maximization"
+      s3Name: "Oceanco",
+      s3Loc: "Alblasserdam, Netherlands · 80m - 120m+",
+      s3Desc: "Visionary megayacht creators pioneering hybrid propulsion, sustainable luxury, and iconic private flagships.",
+
+      s4Name: "Benetti & Sanlorenzo",
+      s4Loc: "Livorno & La Spezia, Italy · 35m - 70m+",
+      s4Desc: "Italian haute couture naval architecture, combining bespoke interior customization with commercial fleet dominance.",
+
+      s5Name: "Mercury Marine High-Performance",
+      s5Loc: "Miami & Fond du Lac, USA · V12 600HP",
+      s5Desc: "The ultimate power standard for luxury center consoles, chase boats, and mega-tenders with steerable gearcase and twin-propeller thrust."
+    },
+    hubsSection: {
+      tag: "STRATEGIC GEOGRAPHIC CORRIDORS",
+      title: "Global Wealth & Yachting Capitals",
+      desc: "Operating seamlessly across the prime maritime financial jurisdictions of the world.",
+      h1City: "Miami & Fort Lauderdale",
+      h1Role: "The Yachting Capital of the Americas",
+      h1Desc: "Biscayne Bay, Star Island, and the 17th Street Causeway. Epicenter of high-performance marine power, FLIBS, and private banking.",
+
+      h2City: "Monaco & French Riviera",
+      h2Role: "The Crown Jewel of the Mediterranean",
+      h2Desc: "Port Hercule, Monaco Yacht Show, and Billionaires' Quay Antibes. The historic seat of European royalty and UHNWI maritime lifestyle.",
+
+      h3City: "Dubai & Abu Dhabi",
+      h3Role: "The Sovereign Gulf Maritime Gateway",
+      h3Desc: "Dubai Harbour, Yas Marina, and Dubai Maritime City. Zero-tax maritime free zones, royal mega-fleets, and year-round winter cruising."
+    },
+    services: {
+      tag: "PRIVATE CLIENT CAPABILITIES",
+      title: "Confidential Maritime & Financial Advisory",
+      desc: "Institutional financial modeling, off-market transaction discretion, and propulsion architecture for principals with $10M to $250M+ maritime allocations.",
+      s1Title: "Off-Market Superyacht Acquisitions & Sourcing",
+      s1Desc: "Accessing unlisted 40m to 100m+ vessels across Northern Europe and the Mediterranean without public digital footprints, protecting principal confidentiality.",
+      s1Perk1: "Strict non-disclosure agreement (NDA) protocols",
+      s1Perk2: "Direct owner-to-owner off-market negotiation",
+      s1Perk3: "Independent naval architecture survey & valuation",
+      
+      s2Title: "Mercury Marine Propulsion Strategy & OEM Integration",
+      s2Desc: "Technical-commercial engineering advisory on high-performance power solutions, specializing in Mercury Verado V12 multi-engine configurations for mega-tenders and high-speed luxury day boats.",
+      s2Perk1: "Transom engineering feasibility & fuel lifecycle modeling",
+      s2Perk2: "Americas dealer network optimization & builder OEM contracts",
+      s2Perk3: "Digital SmartCraft telemetry & luxury chase boat specs",
+
+      s3Title: "International Maritime Finance & Sovereign Flag Structuring",
+      s3Desc: "Comprehensive financial engineering for yacht purchases: flag registration (Cayman, Malta, Marshall Islands, Dubai Maritime City), VAT leasing structures, and family office OpEx optimization.",
+      s3Perk1: "The 10% OpEx Benchmark model for crew, fuel & maintenance",
+      s3Perk2: "Cross-border leasing, VAT & maritime fiscal mitigation",
+      s3Perk3: "Charter syndication & net owner yield maximization"
     },
     calculator: {
       tag: "FINANCIAL MODELING ENGINE",
@@ -97,31 +138,31 @@ export const TRANSLATIONS = {
       c3Metric2: "Cayman Islands Flag"
     },
     booking: {
-      title: "Schedule a Confidential Advisory Session",
-      desc: "Discuss your maritime investment, shipyard expansion, or propulsion strategy directly with Karoline. Sessions available remotely or in-person in Miami / Fort Lauderdale.",
-      nameLabel: "Full Name & Title",
+      title: "Request a Confidential Private Mandate",
+      desc: "Discuss your maritime investment, shipyard contract, or propulsion strategy under strict non-disclosure. In-person meetings in Miami (Brickell), Monaco (Yacht Club), or Dubai.",
+      nameLabel: "Principal / Representative Full Name",
       namePlh: "e.g., Jean-Luc Beaulieu · Principal",
-      emailLabel: "Corporate / Executive Email",
+      emailLabel: "Confidential / Corporate Email",
       emailPlh: "name@company.com",
-      companyLabel: "Organization / Vessel / Family Office",
-      companyPlh: "e.g., Monaco Marine Ventures",
-      serviceLabel: "Engagement Area",
-      serviceOpt1: "Superyacht Brand & Market Strategy",
+      companyLabel: "Family Office / Vessel / Shipyard",
+      companyPlh: "e.g., Geneva Marine Family Office",
+      serviceLabel: "Mandate Area",
+      serviceOpt1: "Off-Market Superyacht Acquisition",
       serviceOpt2: "Mercury Marine Propulsion Advisory",
-      serviceOpt3: "Marine Finance & Asset Structuring",
-      serviceOpt4: "Executive Board / Fractional CMO Role",
-      notesLabel: "Brief Engagement Context",
-      notesPlh: "Please provide a high-level summary of your project or vessel parameters...",
-      submitBtn: "Confirm Advisory Request",
+      serviceOpt3: "Maritime Finance & Sovereign Flag Structuring",
+      serviceOpt4: "Fractional Charter & Family Office Asset Audit",
+      notesLabel: "Engagement Scope & Budget Parameters",
+      notesPlh: "Briefly outline vessel LOA, budget range, or propulsion specifications...",
+      submitBtn: "Submit Private Mandate",
       waBtn: "Direct VIP WhatsApp Concierge"
     },
     chat: {
-      welcome: "Welcome. I am **Karoline AI Executive Concierge**.\n\nI can assist you with:\n• Inquiries on **Mercury Marine propulsion** architecture and Verado V12 integrations.\n• **Superyacht market entry** and UHNWI marketing campaigns.\n• **Marine financial modeling**, charter yield calculations, and vessel OpEx.\n• Scheduling a private consultation with Karoline.\n\nHow may I direct your maritime strategy today?",
+      welcome: "Welcome to the private digital salon of **KAROLINE Advisory** ⚜️.\n\nI can assist you with:\n• Global shipyards: **Lürssen, Feadship, Oceanco, Benetti, Sanlorenzo**.\n• High-performance propulsion: **Mercury Marine Verado V12** integrations.\n• Strategic corridors: **Miami, Monaco, Dubai, and Fort Lauderdale**.\n• Financial modeling: **Yacht OpEx and charter net yield**.\n• Arranging a confidential mandate meeting with Karoline.\n\nHow may I direct your maritime strategy today?",
       pills: [
         "Mercury Marine V12 propulsion strategy",
-        "Yacht charter ROI calculation",
-        "FIU Miami background & credentials",
-        "Book a private consultation"
+        "Lürssen vs Feadship acquisition guidance",
+        "Dubai & Monaco maritime tax structures",
+        "Request private mandate briefing"
       ]
     }
   },
@@ -129,56 +170,97 @@ export const TRANSLATIONS = {
   es: {
     nav: {
       about: "Perfil",
-      credentials: "FIU & Mercury",
+      shipyards: "Astilleros Globales",
       services: "Consultoría",
+      dossier: "Inteligencia Naval",
       cases: "Casos de Éxito",
       calculator: "Calculadora ROI",
-      contact: "Contacto VIP",
-      bookBtn: "Agendar Sesión"
+      contact: "Bóveda VIP",
+      bookBtn: "Mandato Privado"
     },
     hero: {
-      badge: "FIU MIAMI · MERCURY MARINE · ASESORÍA NÁUTICA MONACO",
-      headline: "Liderando el Yachting de Ultra-Lujo & Finanzas Marítimas Globales",
-      description: "Asesoría ejecutiva para astilleros de élite, family offices y corporaciones marinas de alto rendimiento. Conectando finanzas internacionales, marketing para clientes UHNWI y motores de alta potencia Mercury Marine entre Miami, Fort Lauderdale y Mónaco.",
-      ctaPrimary: "Agendar Sesión Confidencial",
+      badge: "FIU MIAMI · MERCURY MARINE · MONACO · ASESORÍA NÁUTICA DUBAI",
+      headline: "Yachting de Ultra-Lujo & Capital Marítimo Soberano",
+      description: "Asesoría confidencial para armadores multimillonarios, astilleros de élite, family offices y corporaciones náuticas de alto rendimiento. Conectando finanzas transfronterizas, adquisiciones fuera de mercado y motores Mercury Marine entre Miami, Mónaco y Dubái.",
+      ctaPrimary: "Solicitar Dossier Confidencial",
       ctaSecondary: "Consultar con Karoline IA",
       profileRole: "Consultora Principal & Estratega Marítima",
       credential1: "Maestría en Negocios y Finanzas Internacionales · FIU Chapman School Miami",
       credential2: "Especialista en Motores de Alto Rendimiento y Ecosistema Mercury Marine V12",
-      credential3: "+$180M USD en Asesoría de Superyates, Charters y Acuerdos Transfronterizos",
-      credential4: "Consultoría Trilingüe: Inglés · Español · Francés"
+      credential3: "+$180M USD en Asesoría de Superyates, Charters y Acuerdos Off-Market",
+      credential4: "Consultoría Ejecutiva Trilingüe: Inglés · Español · Francés"
     },
     metrics: {
       m1Num: "+$180M USD",
       m1Label: "Activos Marítimos Asesorados",
-      m2Num: "3 Sedes Clave",
-      m2Label: "Miami · Fort Lauderdale · Mónaco",
+      m2Num: "5 Sedes Mundiales",
+      m2Label: "Miami · Mónaco · Dubái · Fort Lauderdale · Ginebra",
       m3Num: "Mercury V12",
       m3Label: "Experta en Propulsión Marina",
-      m4Num: "Graduada FIU",
+      m4Num: "FIU Chapman",
       m4Label: "Finanzas & Negocios Globales"
     },
-    services: {
-      tag: "CAPACIDADES ESTRATÉGICAS",
-      title: "Consultoría Marítima & Financiera de Alto Nivel",
-      desc: "Aportando rigor institucional, modelos de valoración financiera y campañas de posicionamiento comercial para los astilleros más prestigiosos del mundo e inversionistas náuticos.",
-      s1Title: "Expansión en el Mercado de Superyates & Branding UHNWI",
-      s1Desc: "Reposicionamiento de astilleros de lujo y firmas de corretaje náutico para captar compradores de ultra alto patrimonio en Norteamérica y el Mediterráneo. Combinando el prestigio de Mónaco con la fuerza comercial de Miami.",
-      s1Perk1: "Arquitectura de marca global y posicionamiento digital",
-      s1Perk2: "Atracción de clientes VIP en Monaco, Cannes y Miami Boat Show",
-      s1Perk3: "Modelos de copropiedad fraccional y sindicación de charters",
+    shipyardsSection: {
+      tag: "LA CÚSPIDE DE LA CONSTRUCCIÓN NAVAL",
+      title: "Astilleros de Élite & Capitales Marítimas",
+      desc: "Relaciones directas con los maestros constructores del norte de Europa y el Mediterráneo, combinadas con la dominancia norteamericana en propulsión marina.",
+      s1Name: "Lürssen Yachts",
+      s1Loc: "Bremen, Alemania · 80m - 180m+",
+      s1Desc: "La autoridad mundial indiscutida en megayates a medida. Maestría en acero, volumen de desplazamiento y discreción naval soberana.",
       
-      s2Title: "Estrategia de Propulsión & Ecosistema Mercury Marine",
-      s2Desc: "Consultoría técnico-comercial en soluciones de propulsión de alta potencia, con especialización en la integración de motores fueraborda Mercury Verado V12 y expansión de redes de distribuidores.",
-      s2Perk1: "Integración de fábrica con astilleros constructores (OEM)",
-      s2Perk2: "Reestructuración y apertura de red de distribuidores marinos",
-      s2Perk3: "Optimización de potencia en embarcaciones rápidas y chase boats",
+      s2Name: "Feadship",
+      s2Loc: "Haarlem / Aalsmeer, Países Bajos · 50m - 110m+",
+      s2Desc: "Perfección pura bajo pedido. Artesanía naval holandesa legendaria y preservación excepcional de valor patrimonial.",
 
-      s3Title: "Finanzas Marítimas Internacionales & Estructuración de Activos",
-      s3Desc: "Modelos financieros exhaustivos para compra de superyates, abanderamiento estratégico (Islas Caimán, Malta, Marshall), proyección de rentabilidad en charter y auditoría para family offices.",
-      s3Perk1: "Optimización de costos operativos (OpEx) para esloras de más de 40m",
-      s3Perk2: "Estructuración fiscal internacional, leasing e IVA marítimo",
-      s3Perk3: "Maximización del retorno neto por explotación en charter"
+      s3Name: "Oceanco",
+      s3Loc: "Alblasserdam, Países Bajos · 80m - 120m+",
+      s3Desc: "Creadores visionarios de megayates pioneros en propulsión híbrida, sostenibilidad de lujo y buques insignia privados.",
+
+      s4Name: "Benetti & Sanlorenzo",
+      s4Loc: "Livorno & La Spezia, Italia · 35m - 70m+",
+      s4Desc: "Arquitectura naval italiana de alta costura, combinando personalización sartorial con liderazgo en volumen de producción.",
+
+      s5Name: "Mercury Marine High-Performance",
+      s5Loc: "Miami & Fond du Lac, EE. UU. · V12 600HP",
+      s5Desc: "El estándar supremo de potencia para embarcaciones rápidas, chase boats y tenders de superyates con caja de cambios direccionable."
+    },
+    hubsSection: {
+      tag: "CORREDORES GEOGRÁFICOS ESTRATÉGICOS",
+      title: "Capitales Globales del Yachting & Patrimonio",
+      desc: "Operación fluida en las jurisdicciones financieras y puertos náuticos más exclusivos del planeta.",
+      h1City: "Miami & Fort Lauderdale",
+      h1Role: "La Capital del Yachting de las Américas",
+      h1Desc: "Biscayne Bay, Star Island y 17th Street Causeway. Epicentro de propulsión de alta potencia, salón náutico FLIBS y banca privada.",
+
+      h2City: "Mónaco & Costa Azul",
+      h2Role: "La Corona del Mediterráneo",
+      h2Desc: "Port Hercule, Monaco Yacht Show y el muelle de los multimillonarios en Antibes. Sede histórica de la realeza europea y el estilo de vida náutico.",
+
+      h3City: "Dubái & Abu Dabi",
+      h3Role: "La Puerta Marítima Soberana del Golfo",
+      h3Desc: "Dubai Harbour, Yas Marina y Dubai Maritime City. Zonas francas marítimas con cero impuestos, mega-flotas reales y navegación invernal de primer nivel."
+    },
+    services: {
+      tag: "CAPACIDADES PARA CLIENTES PRIVADOS",
+      title: "Consultoría Marítima & Financiera Confidencial",
+      desc: "Modelación financiera institucional, discreción en transacciones fuera de mercado (off-market) y arquitectura de propulsión para patrimonios de $10M a más de $250M USD.",
+      s1Title: "Adquisición de Superyates Fuera de Mercado (Off-Market)",
+      s1Desc: "Localización de embarcaciones exclusivas de 40m a más de 100m en el norte de Europa y el Mediterráneo sin rastro digital público, protegiendo la identidad del comprador.",
+      s1Perk1: "Protocolos estrictos de confidencialidad (NDA)",
+      s1Perk2: "Negociación directa entre armadores privados",
+      s1Perk3: "Peritaje naval independiente y valoración financiera",
+      
+      s2Title: "Estrategia de Propulsión Mercury Marine & Integración OEM",
+      s2Desc: "Consultoría técnico-comercial en soluciones de propulsión fueraborda de alta potencia, especializándose en configuraciones múltiples de Mercury Verado V12 para tenders de superyates.",
+      s2Perk1: "Ingeniería de espejo de popa y análisis de ciclo de vida de combustible",
+      s2Perk2: "Optimización de red de concesionarios y contratos con astilleros",
+      s2Perk3: "Telemetría digital SmartCraft y especificaciones de chase boats",
+
+      s3Title: "Finanzas Marítimas Internacionales & Abanderamiento Soberano",
+      s3Desc: "Estructuración financiera completa: abanderamiento (Islas Caimán, Malta, Islas Marshall, Dubái Maritime City), leasing con IVA marítimo y reducción de costos OpEx.",
+      s3Perk1: "Modelo de referencia del 10% de OpEx para tripulación y marina",
+      s3Perk2: "Estructuras fiscales transfronterizas y exenciones de IVA",
+      s3Perk3: "Sindicación de charter y maximización del retorno neto"
     },
     calculator: {
       tag: "MOTOR DE MODELACIÓN FINANCIERA",
@@ -218,31 +300,31 @@ export const TRANSLATIONS = {
       c3Metric2: "Bandera Islas Caimán"
     },
     booking: {
-      title: "Agendar Sesión de Consultoría Confidencial",
-      desc: "Dialoga directamente con Karoline sobre inversiones marítimas, expansión de astilleros o estrategia de propulsión. Sesiones virtuales o presenciales en Miami / Fort Lauderdale.",
-      nameLabel: "Nombre Completo y Cargo",
+      title: "Solicitar Mandato Confidencial Privado",
+      desc: "Coordina una sesión estratégica bajo estricto acuerdo de no divulgación (NDA). Encuentros presenciales en Miami (Brickell), Mónaco (Yacht Club) o Dubái.",
+      nameLabel: "Nombre Completo del Titular o Representante",
       namePlh: "Ej. Carlos Mendoza · Director de Inversiones",
-      emailLabel: "Correo Corporativo / Ejecutivo",
+      emailLabel: "Correo Corporativo / Confidencial",
       emailPlh: "nombre@empresa.com",
-      companyLabel: "Organización / Embarcación / Family Office",
-      companyPlh: "Ej. Ocean Capital Partners",
-      serviceLabel: "Área de Interés",
-      serviceOpt1: "Estrategia de Marca y Mercado de Superyates",
-      serviceOpt2: "Asesoría en Motores y Propulsión Mercury Marine",
-      serviceOpt3: "Finanzas Náuticas & Estructuración de Activos",
-      serviceOpt4: "Rol Ejecutivo Fraccional / Dirección de Marketing",
-      notesLabel: "Breve Contexto del Proyecto",
-      notesPlh: "Describe brevemente las dimensiones de tu embarcación o proyecto comercial...",
-      submitBtn: "Confirmar Solicitud de Consultoría",
+      companyLabel: "Family Office / Embarcación / Astillero",
+      companyPlh: "Ej. Ocean Capital Family Office",
+      serviceLabel: "Tipo de Mandato Requerido",
+      serviceOpt1: "Adquisición de Superyate Fuera de Mercado",
+      serviceOpt2: "Consultoría en Propulsión Mercury Marine V12",
+      serviceOpt3: "Finanzas Náuticas & Abanderamiento Soberano",
+      serviceOpt4: "Sindicación de Charter y Auditoría de Activos",
+      notesLabel: "Parámetros del Proyecto o Presupuesto",
+      notesPlh: "Describe brevemente la eslora deseada, rango de inversión o especificaciones...",
+      submitBtn: "Presentar Solicitud de Mandato",
       waBtn: "Contacto Directo VIP por WhatsApp"
     },
     chat: {
-      welcome: "Bienvenido. Soy **Karoline AI Executive Concierge**.\n\nPuedo orientarte sobre:\n• Motores de alto rendimiento y arquitectura **Mercury Marine V12**.\n• Estrategia de **expansión de mercado** y branding para superyates.\n• **Modelos financieros marítimos**, rentabilidad de charter y cálculo de costos OpEx.\n• Coordinar una reunión privada con Karoline.\n\n¿En qué ámbito marítimo puedo apoyar tu estrategia hoy?",
+      welcome: "Bienvenido al salón digital privado de **KAROLINE Advisory** ⚜️.\n\nPuedo orientarte sobre:\n• Astilleros de élite: **Lürssen, Feadship, Oceanco, Benetti, Sanlorenzo**.\n• Motores de alto rendimiento: Arquitectura **Mercury Marine Verado V12**.\n• Hubs estratégicos: **Miami, Mónaco, Dubái y Fort Lauderdale**.\n• Modelos financieros: **Costos OpEx de yates y retorno de charter**.\n• Coordinar una reunión privada de mandato con Karoline.\n\n¿En qué ámbito marítimo puedo apoyar tu estrategia hoy?",
       pills: [
         "Estrategia de motores Mercury V12",
-        "Cálculo de retorno de charter",
-        "Trayectoria académica en FIU Miami",
-        "Agendar reunión privada"
+        "Comparativa Lürssen vs Feadship",
+        "Estructuración fiscal en Dubái y Mónaco",
+        "Solicitar mandato confidencial"
       ]
     }
   },
@@ -250,56 +332,97 @@ export const TRANSLATIONS = {
   fr: {
     nav: {
       about: "Profil",
-      credentials: "FIU & Mercury",
+      shipyards: "Chantiers Navals",
       services: "Conseil",
+      dossier: "Renseignements Flotte",
       cases: "Études de Cas",
       calculator: "Calculateur ROI",
-      contact: "Contact VIP",
-      bookBtn: "Réserver un Entretien"
+      contact: "Espace VIP",
+      bookBtn: "Mandat Privé"
     },
     hero: {
-      badge: "FIU MIAMI · MERCURY MARINE · CONSEIL EN YACHTING MONACO",
-      headline: "Yachting d'Ultra-Luxe & Finance Maritime Internationale",
-      description: "Conseil exécutif pour chantiers navals de prestige, family offices et leaders du motonautisme de haute performance. Alliant finance transfrontalière, marketing UHNWI et ingénierie de propulsion Mercury Marine entre Miami, Fort Lauderdale et Monaco.",
-      ctaPrimary: "Programmer un Entretien Confidentiel",
+      badge: "FIU MIAMI · MERCURY MARINE · MONACO · DUBAI MARITIME ADVISORY",
+      headline: "Yachting d'Ultra-Luxe & Capitaux Maritimes Souverains",
+      description: "Conseil discret pour armateurs milliardaires, chantiers navals de prestige, family offices et constructeurs de haute performance. Alliant finance transfrontalière, acquisitions hors-marché et motorisation Mercury Marine entre Miami, Monaco et Dubaï.",
+      ctaPrimary: "Demander le Dossier Confidentiel",
       ctaSecondary: "Consulter Karoline IA",
       profileRole: "Directrice Conseil & Stratège Maritime",
       credential1: "Master en Affaires & Finance Internationales · FIU Chapman School Miami",
       credential2: "Spécialiste en Propulsion Haute Performance & Écosystème Mercury Marine V12",
-      credential3: "+180M$ USD en Conseil d'Actifs de Superyachts, Charters & Accords Internationaux",
-      credential4: "Conseil Trilingue : Anglais · Espagnol · Français"
+      credential3: "+180M$ USD en Conseil d'Actifs de Superyachts, Charters & Ventes Privées",
+      credential4: "Conseil Exécutif Trilingue : Anglais · Espagnol · Français"
     },
     metrics: {
       m1Num: "+180M$ USD",
       m1Label: "Actifs Maritimes Conseillés",
-      m2Num: "3 Pôles Clés",
-      m2Label: "Miami · Fort Lauderdale · Monaco",
+      m2Num: "5 Pôles Mondiaux",
+      m2Label: "Miami · Monaco · Dubaï · Fort Lauderdale · Genève",
       m3Num: "Mercury V12",
       m3Label: "Experte en Propulsion Marine",
-      m4Num: "Diplômée FIU",
+      m4Num: "FIU Chapman",
       m4Label: "Finance & Affaires Internationales"
     },
-    services: {
-      tag: "COMPÉTENCES STRATÉGIQUES",
-      title: "Conseil Maritime & Financier Sur-Mesure",
-      desc: "Apportant rigueur institutionnelle, modélisation financière et campagnes commerciales d'impact pour les chantiers navals les plus prestigieux et investisseurs maritimes.",
-      s1Title: "Entrée sur le Marché du Superyacht & Image de Marque UHNWI",
-      s1Desc: "Repositionnement de marques de chantiers navals et maisons de courtage pour capter les acquéreurs ultra-fortunés en Amérique du Nord et Méditerranée.",
-      s1Perk1: "Architecture de marque internationale et visibilité ciblée",
-      s1Perk2: "Acquisition de clients VIP aux salons de Monaco, Cannes et Miami",
-      s1Perk3: "Modèles de copropriété fractionnée et syndication de charter",
+    shipyardsSection: {
+      tag: "LE SOMMET DE LA CONSTRUCTION NAVALE",
+      title: "Chantiers d'Élite & Capitales Maritimes",
+      desc: "Accès direct aux maîtres constructeurs de l'Europe du Nord et de la Méditerranée, adossé à la puissance américaine de motorisation.",
+      s1Name: "Lürssen Yachts",
+      s1Loc: "Brême, Allemagne · 80m - 180m+",
+      s1Desc: "La référence mondiale incontestée des megayachts sur-mesure. Maîtrise de l'acier, volumes de déplacement exceptionnels et discrétion souveraine.",
       
-      s2Title: "Stratégie de Propulsion & Écosystème Mercury Marine",
-      s2Desc: "Conseil technico-commercial en propulsion de haute performance, spécialisé dans l'intégration des hors-bord Mercury Verado V12 et le développement de réseaux de concessionnaires.",
-      s2Perk1: "Intégration usine auprès des chantiers constructeurs (OEM)",
-      s2Perk2: "Restructuration et expansion des réseaux de distribution",
-      s2Perk3: "Optimisation de puissance pour tenders de luxe et chase boats",
+      s2Name: "Feadship",
+      s2Loc: "Haarlem / Aalsmeer, Pays-Bas · 50m - 110m+",
+      s2Desc: "Perfection artisanale hollandaise absolue. Architecture navale exclusive et préservation patrimoniale inégalée.",
 
-      s3Title: "Finance Maritime Internationale & Structuration d'Actifs",
-      s3Desc: "Modélisation financière pour l'acquisition de superyachts, immatriculation de pavillon (Caïmans, Malte, Marshall), prévisions de rendement de charter et audits pour family offices.",
-      s3Perk1: "Optimisation des coûts d'exploitation (OpEx) pour unités de 40m+",
-      s3Perk2: "Structuration fiscale transfrontalière, leasing et TVA maritime",
-      s3Perk3: "Maximisation du rendement net d'exploitation en charter"
+      s3Name: "Oceanco",
+      s3Loc: "Alblasserdam, Pays-Bas · 80m - 120m+",
+      s3Desc: "Bâtisseurs visionnaires pionniers en propulsion hybride, voiliers géants et yachts de souverains.",
+
+      s4Name: "Benetti & Sanlorenzo",
+      s4Loc: "Livourne & La Spezia, Italie · 35m - 70m+",
+      s4Desc: "Haute couture navale italienne alliant personnalisation sartoriale et suprématie de flotte.",
+
+      s5Name: "Mercury Marine High-Performance",
+      s5Loc: "Miami & Fond du Lac, USA · V12 600 CH",
+      s5Desc: "Le standard absolu de puissance pour chase boats et tenders de superyachts avec embase orientable."
+    },
+    hubsSection: {
+      tag: "CORRIDORS STRATÉGIQUES MONDIAUX",
+      title: "Capitales Nautiques & Grandes Fortunes",
+      desc: "Présence continue au sein des juridictions maritimes et des ports les plus exclusifs.",
+      h1City: "Miami & Fort Lauderdale",
+      h1Role: "La Capitale Nautique des Amériques",
+      h1Desc: "Biscayne Bay, Star Island et 17th Street Causeway. Épicentre de la propulsion marine, du salon FLIBS et du private banking.",
+
+      h2City: "Monaco & Côte d'Azur",
+      h2Role: "Le Joyau de la Méditerranée",
+      h2Desc: "Port Hercule, Monaco Yacht Show et quai des milliardaires à Antibes. Lieu historique de la royauté européenne et du grand yachting.",
+
+      h3City: "Dubaï & Abou Dabi",
+      h3Role: "La Porte Maritime Souveraine du Golfe",
+      h3Desc: "Dubai Harbour, Yas Marina et Dubai Maritime City. Zones franches maritimes hors-taxes, méga-flottes royales et croisières d'hiver."
+    },
+    services: {
+      tag: "SERVICES CLIENTÈLE PRIVÉE",
+      title: "Conseil Maritime & Financier Confidentiel",
+      desc: "Ingénierie financière institutionnelle, discrétion absolue hors-marché et motorisation de pointe pour allocations maritimes de 10M$ à plus de 250M$ USD.",
+      s1Title: "Acquisitions de Superyachts Hors-Marché (Off-Market)",
+      s1Desc: "Accès exclusif à des unités de 40m à 100m+ sans exposition publique en Europe du Nord et Méditerranée, préservant l'anonymat de l'acquéreur.",
+      s1Perk1: "Protocoles stricts d'accord de confidentialité (NDA)",
+      s1Perk2: "Négociation directe d'armateur à armateur",
+      s1Perk3: "Expertise navale indépendante et valorisation",
+      
+      s2Title: "Stratégie de Propulsion Mercury Marine & Intégration OEM",
+      s2Desc: "Conseil technico-commercial en propulsion haute performance, spécialisé dans les configurations multiples de Mercury Verado V12 pour tenders de superyachts.",
+      s2Perk1: "Ingénierie de tableau arrière et analyse du cycle de carburant",
+      s2Perk2: "Développement des réseaux de concessionnaires et accords OEM",
+      s2Perk3: "Télémétrie SmartCraft et cahiers des charges de chase boats",
+
+      s3Title: "Finance Maritime Internationale & Pavillons Souverains",
+      s3Desc: "Montages financiers complets : choix de pavillon (Caïmans, Malte, Marshall, Dubaï Maritime City), leasing avec TVA maritime et rationalisation de l'OpEx.",
+      s3Perk1: "Modèle de référence des 10% d'OpEx pour équipage et port",
+      s3Perk2: "Structures fiscales transfrontalières et optimisation TVA",
+      s3Perk3: "Syndication de charter et maximisation du rendement net"
     },
     calculator: {
       tag: "MOTEUR DE MODÉLISATION FINANCIÈRE",
@@ -339,31 +462,31 @@ export const TRANSLATIONS = {
       c3Metric2: "Pavillon Îles Caïmans"
     },
     booking: {
-      title: "Planifier une Séance de Conseil Confidentielle",
-      desc: "Échangez directement avec Karoline sur vos projets d'investissement maritime, expansion de chantier ou motorisation. Entretiens à distance ou en personne à Miami / Fort Lauderdale.",
-      nameLabel: "Nom Complet & Titre",
-      namePlh: "Ex. Henri de Montmirail · Directeur des Investissements",
-      emailLabel: "Adresse E-mail Professionnelle",
+      title: "Solliciter un Mandat Privé Confidentiel",
+      desc: "Entretiens stratégiques sous accord strict de confidentialité (NDA). Rencontres en personne à Miami (Brickell), Monaco (Yacht Club) ou Dubaï.",
+      nameLabel: "Nom Complet du Mandant ou Représentant",
+      namePlh: "Ex. Henri de Montmirail · Principal",
+      emailLabel: "Adresse E-mail Confidentielle / Professionnelle",
       emailPlh: "nom@societe.com",
-      companyLabel: "Entreprise / Yacht / Family Office",
-      companyPlh: "Ex. Côte d'Azur Maritime Partners",
-      serviceLabel: "Domaine d'Intervention",
-      serviceOpt1: "Stratégie de Marque & Marché du Superyacht",
-      serviceOpt2: "Conseil en Motorisation Mercury Marine",
-      serviceOpt3: "Finance Maritime & Structuration d'Actifs",
-      serviceOpt4: "Direction Stratégique Fractionnée / Rôle CMO",
-      notesLabel: "Contexte Succinct de Votre Projet",
-      notesPlh: "Présentez brièvement votre projet ou les caractéristiques de votre navire...",
-      submitBtn: "Confirmer la Demande de Conseil",
+      companyLabel: "Family Office / Navire / Chantier",
+      companyPlh: "Ex. Geneva Maritime Partners",
+      serviceLabel: "Objet du Mandat",
+      serviceOpt1: "Acquisition de Superyacht Hors-Marché",
+      serviceOpt2: "Conseil en Motorisation Mercury Marine V12",
+      serviceOpt3: "Finance Maritime & Pavillons Souverains",
+      serviceOpt4: "Syndication de Charter et Audit Patrimonial",
+      notesLabel: "Périmètre de l'Intervention & Budget",
+      notesPlh: "Précisez brièvement l'eslora souhaitée, la fourchette d'investissement...",
+      submitBtn: "Transmettre le Mandat Privé",
       waBtn: "Liaison Directe VIP sur WhatsApp"
     },
     chat: {
-      welcome: "Bienvenue. Je suis **Karoline AI Executive Concierge**.\n\nJe peux vous renseigner sur :\n• L'architecture de propulsion **Mercury Marine Verado V12**.\n• Les stratégies d'**entrée sur le marché du superyacht** et le marketing UHNWI.\n• La **modélisation financière maritime**, les ratios d'OpEx et le rendement locatif.\n• L'organisation d'un entretien privé avec Karoline.\n\nSur quel volet maritime puis-je éclairer votre stratégie aujourd'hui ?",
+      welcome: "Bienvenue au salon privé numérique de **KAROLINE Advisory** ⚜️.\n\nJe suis à votre disposition pour aborder :\n• Les chantiers d'élite : **Lürssen, Feadship, Oceanco, Benetti, Sanlorenzo**.\n• La propulsion d'exception : architectures **Mercury Marine Verado V12**.\n• Les corridors clés : **Miami, Monaco, Dubaï et Fort Lauderdale**.\n• La finance maritime : **audits d'OpEx et rendement de charter**.\n• L'organisation d'un entretien sous mandat privé avec Karoline.\n\nSur quel volet maritime puis-je vous éclairer aujourd'hui ?",
       pills: [
         "Propulsion Mercury V12 et performances",
-        "Calcul de rendement charter",
-        "Cursus et références FIU Miami",
-        "Réserver un entretien stratégique"
+        "Comparatif Lürssen vs Feadship",
+        "Fiscalité maritime Dubaï et Monaco",
+        "Demande d'entretien sous mandat privé"
       ]
     }
   }
