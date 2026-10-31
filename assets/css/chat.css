@@ -1,0 +1,276 @@
+/**
+ * KAROLINE · Haute Mer & Ultra-Luxury Advisory
+ * AI Concierge Chatbot Widget (Luxury Nautical Theme)
+ */
+
+.chat-widget-lux {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 120;
+}
+
+/* Floating Launcher */
+.chat-lux-launcher {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, #152449 0%, #0B1325 100%);
+  border: 1.5px solid var(--gold-primary);
+  color: #FFFFFF;
+  padding: 0.85rem 1.5rem;
+  border-radius: var(--radius-full);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(212, 175, 55, 0.3);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  transition: all var(--transition-smooth);
+}
+
+.chat-lux-launcher:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(212, 175, 55, 0.5);
+}
+
+.chat-lux-badge {
+  background: var(--grad-gold);
+  color: #0B1325;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Chat Box */
+.chat-lux-box {
+  position: fixed;
+  bottom: 6rem;
+  right: 2rem;
+  width: 410px;
+  max-width: calc(100vw - 2.5rem);
+  height: 570px;
+  max-height: calc(100vh - 8rem);
+  background: linear-gradient(180deg, #111C35 0%, #080D1A 100%);
+  border: 1.5px solid rgba(212, 175, 55, 0.4);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 30px rgba(212, 175, 55, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 121;
+  transform: translateY(20px) scale(0.96);
+  opacity: 0;
+  pointer-events: none;
+  transition: all var(--transition-smooth);
+}
+
+.chat-lux-box.open {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Chat Header */
+.chat-lux-header {
+  background: linear-gradient(90deg, #0B1325 0%, #152449 100%);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+  padding: 1.1rem 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chat-lux-agent {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.chat-lux-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--gold-primary);
+  background: #0B1325;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-accent);
+  font-size: 1.25rem;
+  position: relative;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.chat-online-pulse {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 11px;
+  height: 11px;
+  background: #10B981;
+  border: 2px solid #0B1325;
+  border-radius: var(--radius-full);
+}
+
+.chat-lux-name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.1;
+}
+
+.chat-lux-role {
+  font-size: 0.72rem;
+  color: var(--gold-accent);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.chat-lux-close {
+  color: var(--text-muted);
+  font-size: 1.4rem;
+  padding: 0.2rem 0.4rem;
+  transition: color var(--transition-fast);
+}
+.chat-lux-close:hover {
+  color: #FFFFFF;
+}
+
+/* Chat Messages */
+.chat-lux-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.chat-lux-msg {
+  display: flex;
+  flex-direction: column;
+  max-width: 86%;
+  animation: luxMsgFade 0.3s ease forwards;
+}
+
+.chat-lux-msg.bot {
+  align-self: flex-start;
+}
+
+.chat-lux-msg.user {
+  align-self: flex-end;
+}
+
+.chat-lux-bubble {
+  padding: 0.85rem 1.15rem;
+  border-radius: var(--radius-lg);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.chat-lux-msg.bot .chat-lux-bubble {
+  background: rgba(21, 34, 68, 0.8);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  color: #E2E8F0;
+  border-bottom-left-radius: 4px;
+}
+
+.chat-lux-msg.user .chat-lux-bubble {
+  background: var(--grad-gold);
+  color: #0B1325;
+  font-weight: 600;
+  border-bottom-right-radius: 4px;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+}
+
+.chat-lux-time {
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  margin-top: 0.25rem;
+}
+.chat-lux-msg.user .chat-lux-time {
+  align-self: flex-end;
+}
+
+/* Suggestion Pills */
+.chat-lux-suggestions {
+  display: flex;
+  gap: 0.4rem;
+  overflow-x: auto;
+  padding: 0.6rem 1.25rem;
+  background: rgba(11, 19, 37, 0.9);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  scrollbar-width: none;
+}
+.chat-lux-suggestions::-webkit-scrollbar {
+  display: none;
+}
+
+.lux-pill {
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+  background: rgba(21, 34, 68, 0.8);
+  color: var(--gold-accent);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.lux-pill:hover {
+  background: var(--grad-gold);
+  color: #0B1325;
+  border-color: var(--gold-primary);
+}
+
+/* Input Bar */
+.chat-lux-input-bar {
+  padding: 0.85rem 1.25rem;
+  background: #0B1325;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.chat-lux-input {
+  flex: 1;
+  background: rgba(21, 34, 68, 0.8);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: var(--radius-full);
+  padding: 0.65rem 1rem;
+  color: #FFFFFF;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.chat-lux-input:focus {
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.25);
+}
+
+.chat-lux-send {
+  width: 40px;
+  height: 40px;
+  background: var(--grad-gold);
+  color: #0B1325;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+.chat-lux-send:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+@keyframes luxMsgFade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}

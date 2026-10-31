@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KAROLINE · Ultra-Luxury Yachting Advisory, Marine Finance & Propulsion Strategy</title>
+
+  <!-- SEO Meta -->
+  <meta name="description" content="Executive maritime advisory by Karoline (FIU Miami Masters in International Business & Finance). Specializing in Mercury Marine high-performance propulsion, superyacht marketing, and international maritime finance across Miami, Fort Lauderdale, and Monaco." />
+  <meta name="keywords" content="ultra luxury yachting, marine advisory, mercury marine propulsion, verado v12, superyacht marketing, fiu miami, marine finance, monaco yacht show, Fort Lauderdale boat show, karoline" />
+  <meta name="author" content="KAROLINE Advisory" />
+  <meta name="theme-color" content="#0B1325" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="KAROLINE · Ultra-Luxury Yachting & Maritime Advisory" />
+  <meta property="og:description" content="Navigating ultra-luxury yachting, Mercury Marine propulsion strategy, and cross-border maritime finance between Miami and Monaco." />
+  <meta property="og:image" content="assets/img/favicon.svg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/tokens.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/chat.css" />
+
+  <!-- Schema.org ProfessionalService -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "KAROLINE · Ultra-Luxury Yachting & Marine Finance Advisory",
+    "url": "https://damanza2011.github.io/karoline-web/",
+    "logo": "https://damanza2011.github.io/karoline-web/assets/img/favicon.svg",
+    "image": "https://images.unsplash.com/photo-1569263979104-865ab7cd8d17?w=1200",
+    "description": "Executive advisory for elite shipyards, superyacht owners, and marine propulsion leaders across Miami, Fort Lauderdale, and Monaco.",
+    "founder": {
+      "@type": "Person",
+      "name": "Carolina (Karoline)",
+      "jobTitle": "Managing Principal & Maritime Strategist",
+      "alumniOf": "Florida International University (FIU)"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Miami",
+      "addressRegion": "FL",
+      "addressCountry": "US"
+    },
+    "areaServed": ["United States", "Monaco", "Caribbean", "Mediterranean"],
+    "knowsLanguage": ["English", "Spanish", "French"]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- 1. Luxury Sticky Header -->
+  <header class="header-luxury" role="banner">
+    <div class="container header-container">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-link" aria-label="KAROLINE Luxury Advisory">
+        <div class="brand-symbol">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+        </div>
+        <div class="brand-text-block">
+          <span class="brand-title">KARO<span class="gold-text">LINE</span></span>
+          <span class="brand-subtitle">Haute Mer & Advisory</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="nav-menu" role="navigation">
+        <a href="#about" class="nav-link" data-i18n="nav.about">Profile</a>
+        <a href="#credentials" class="nav-link" data-i18n="nav.credentials">FIU & Mercury</a>
+        <a href="#services" class="nav-link" data-i18n="nav.services">Advisory</a>
+        <a href="#cases" class="nav-link" data-i18n="nav.cases">Case Studies</a>
+        <a href="#calculator" class="nav-link" data-i18n="nav.calculator">Yacht ROI Calc</a>
+        <a href="#contact" class="nav-link" data-i18n="nav.contact">VIP Inquiries</a>
+      </nav>
+
+      <!-- Right Header Actions (Trilingual Switcher + CTA) -->
+      <div class="header-right">
+        <!-- Language Switcher: EN | ES | FR -->
+        <div class="lang-switcher" aria-label="Language Selector">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+        </div>
+
+        <button class="btn-gold" data-action="open-booking" data-i18n="nav.bookBtn">
+          Book Strategy Call
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- 2. Hero Section -->
+  <section class="hero-luxury" id="about">
+    <div class="container hero-grid">
+      
+      <!-- Left Column: Value Proposition -->
+      <div class="hero-content">
+        <div class="hero-credentials-tag">
+          <span class="luxury-badge" data-i18n="hero.badge">
+            FIU MIAMI · MERCURY MARINE · MONACO YACHTING ADVISORY
+          </span>
+        </div>
+
+        <h1 class="hero-headline" data-i18n="hero.headline">
+          Navigating Ultra-Luxury Yachting & Global Maritime Finance
+        </h1>
+
+        <div class="gold-divider"></div>
+
+        <p class="hero-description" data-i18n="hero.description">
+          Executive advisory for elite shipyards, family offices, and high-performance marine corporations. Bridging cross-border finance, UHNWI marketing, and Mercury Marine propulsion architecture across Miami, Fort Lauderdale, and Monaco.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn-gold" id="hero-cta-primary" data-i18n="hero.ctaPrimary">
+            Schedule Confidential Briefing
+          </button>
+          <button class="btn-outline-gold" id="hero-cta-secondary" data-i18n="hero.ctaSecondary">
+            Consult KAROLINE AI Concierge
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Column: Executive Profile Card -->
+      <div class="hero-visual" id="credentials">
+        <div class="hero-visual-card">
+          <div class="hero-card-glow"></div>
+
+          <div class="profile-header">
+            <div class="profile-avatar-wrap">
+              <img 
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&auto=format&fit=crop&q=80" 
+                alt="Karoline - Maritime Strategist" 
+                class="profile-avatar-img"
+              />
+            </div>
+            <div class="profile-meta">
+              <span class="luxury-badge badge-blue">Executive Principal</span>
+              <h3>Carolina · Karoline</h3>
+              <p class="profile-title" data-i18n="hero.profileRole">Managing Principal & Maritime Strategist</p>
+            </div>
+          </div>
+
+          <div class="credentials-list">
+            <div class="credential-item">
+              <span class="credential-icon">🏛️</span>
+              <span data-i18n="hero.credential1">MS in International Business & Finance · FIU Chapman Graduate School</span>
+            </div>
+            <div class="credential-item">
+              <span class="credential-icon">⚡</span>
+              <span data-i18n="hero.credential2">High-Performance Propulsion Strategy & Mercury Marine V12 Ecosystem</span>
+            </div>
+            <div class="credential-item">
+              <span class="credential-icon">🛥️</span>
+              <span data-i18n="hero.credential3">$180M+ in Superyacht Asset Advisory, Charters & Cross-Border Deals</span>
+            </div>
+            <div class="credential-item">
+              <span class="credential-icon">🌐</span>
+              <span data-i18n="hero.credential4">Trilingual Advisory: English · Español · Français</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3. Global Metrics Strip -->
+  <section class="metrics-strip" aria-label="Key Performance Metrics">
+    <div class="container metrics-grid">
+      <div class="metric-box">
+        <div class="metric-number"><span data-i18n="metrics.m1Num">$180M+</span></div>
+        <div class="metric-label" data-i18n="metrics.m1Label">Maritime Assets Advised</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-number"><span data-i18n="metrics.m2Num">3 Global Hubs</span></div>
+        <div class="metric-label" data-i18n="metrics.m2Label">Miami · Fort Lauderdale · Monaco</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-number"><span data-i18n="metrics.m3Num">Mercury V12</span></div>
+        <div class="metric-label" data-i18n="metrics.m3Label">High-Performance Propulsion Expert</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-number"><span data-i18n="metrics.m4Num">FIU Graduate</span></div>
+        <div class="metric-label" data-i18n="metrics.m4Label">International Finance & Business</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Strategic Advisory Services -->
+  <section class="section-luxury" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="luxury-badge" data-i18n="services.tag">STRATEGIC CAPABILITIES</span>
+        <h2 class="section-title" data-i18n="services.title">Bespoke Maritime & Financial Advisory</h2>
+        <div class="gold-divider center"></div>
+        <p class="section-desc" data-i18n="services.desc">
+          Delivering institutional rigor, proprietary valuation models, and high-impact commercial campaigns to the world's most prestigious yacht builders and maritime investors.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service 1: Superyacht Market Entry & Branding -->
+        <div class="service-card">
+          <div class="service-icon-box">🛥️</div>
+          <h3 class="service-title" data-i18n="services.s1Title">Superyacht Market Entry & UHNWI Brand Elevation</h3>
+          <p class="service-description" data-i18n="services.s1Desc">
+            Repositioning luxury shipyards and brokerage houses to capture ultra-high-net-worth buyers across North America and the Mediterranean. Combining Monaco prestige with Miami boat show dynamism.
+          </p>
+          <ul class="service-perks">
+            <li class="service-perk"><span>✓</span> <span data-i18n="services.s1Perk1">Cross-border brand architecture & digital positioning</span></li>
+            <li class="service-perk"><span>✓</span> <span data-i18n="services.s1Perk2">VIP client acquisition at Monaco, Cannes & Miami Boat Show</span></li>
+            <li class="service-perk"><span>✓</span> <span data-i18n="services.s1Perk3">Fractional ownership & charter syndication models</span></li>
+          </ul>
+        </div>
+
+        <!-- Service 2: Propulsion & Mercury Marine Ecosystem -->
+        <div class="service-card">
+          <div class="service-icon-box">⚡</div>
+          <h3 class="service-title" data-i18n="services.s2Title">Marine Propulsion Strategy & Mercury Marine Ecosystem</h3>
+          <p class="service-description" data-i18n="services.s2Desc">
+            Technical and commercial consulting on high-performance marine power solutions, specializing in Mercury Marine Verado V12 outboard integration and dealer network expansion across the Americas.
+          </p>
+          <ul class="service-perks">
+            <li class="service-perk"><span>✓</span> <span data-i18n="services.s2Perk1">Builder OEM integration and propulsion lifecycle analysis</span></li>
+            <li class="service-perk"><span>✓</span> <span data-i18n="services.s2Perk2">Dealer network restructuring & territory expansion</span></li>
+            <li class="service-perk"><span>✓</span> <span data-i18n="services.s2Perk3">High-speed luxury tender & center console power optimization</span></li>
+          </ul>
+        </div>
+
+        <!-- Service 3: International Maritime Finance -->
+        <div class="service-card">
+          <div class="service-icon-box">📊</div>
+          <h3 class="service-title" data-i18n="services.s3Title">International Maritime Finance & Asset Structuring</h3>
+          <p class="service-description" data-i18n="services.s3Desc">
+            Comprehensive financial modeling for superyacht acquisitions, flag state structuring (Cayman, Malta, Marshall Islands), charter yield forecasting, and family office maritime portfolio due diligence.
+          </p>
+          <ul class="service-perks">
+            <li class="service-perk"><span>✓</span> <span data-i18n="services.s3Perk1">OpEx & CapEx optimization models for 40m+ vessels</span></li>
+            <li class="service-perk"><span>✓</span> <span data-i18n="services.s3Perk2">Cross-border leasing, VAT & maritime fiscal structuring</span></li>
+            <li class="service-perk"><span>✓</span> <span data-i18n="services.s3Perk3">Charter revenue projection & Net Yield maximization</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Interactive Yacht ROI & Charter Yield Engine -->
+  <section class="section-luxury" id="calculator" style="background: rgba(11, 19, 37, 0.5);">
+    <div class="container">
+      <div class="section-header">
+        <span class="luxury-badge" data-i18n="calculator.tag">FINANCIAL MODELING ENGINE</span>
+        <h2 class="section-title" data-i18n="calculator.title">Interactive Yacht Investment & Charter Yield Engine</h2>
+        <div class="gold-divider center"></div>
+        <p class="section-desc" data-i18n="calculator.desc">
+          Simulate annual operating expenses (OpEx), projected charter revenues, and net owner return across vessel categories and propulsion packages.
+        </p>
+      </div>
+
+      <div class="calculator-box">
+        <!-- Controls Column -->
+        <div class="calc-inputs-col">
+          <div class="calc-form-group">
+            <label class="calc-label" for="calc-vessel-select" data-i18n="calculator.vesselLabel">Vessel Class & Dimensions</label>
+            <select id="calc-vessel-select" class="calc-select">
+              <option value="tier1" data-i18n="calculator.vesselOpt1">38ft - 50ft Luxury Day Cruiser / Quad Mercury Outboards</option>
+              <option value="tier2" selected data-i18n="calculator.vesselOpt2">130ft (40m) High-Performance Superyacht / Quint Mercury V12</option>
+              <option value="tier3" data-i18n="calculator.vesselOpt3">200ft (60m) Megayacht / Twin Heavy Marine Diesels</option>
+            </select>
+          </div>
+
+          <div class="calc-form-group">
+            <div style="display: flex; justify-content: space-between; align-items: baseline;">
+              <label class="calc-label" for="calc-weeks-range" data-i18n="calculator.weeksLabel">Charter Weeks Booked per Year</label>
+              <span id="calc-weeks-val" style="font-weight: 800; color: #D4AF37;">10 weeks / an</span>
+            </div>
+            <input type="range" id="calc-weeks-range" min="4" max="22" value="10" step="1" class="calc-range" />
+          </div>
+
+          <div class="calc-form-group">
+            <label class="calc-label" for="calc-rate-input" data-i18n="calculator.rateLabel">Weekly Charter Base Rate (USD)</label>
+            <input type="number" id="calc-rate-input" class="calc-select" value="180000" step="5000" />
+          </div>
+        </div>
+
+        <!-- Projected Financial Output -->
+        <div class="calc-results-card">
+          <h4 style="font-size: 1.15rem; color: #FFFFFF; font-weight: 800; margin-bottom: 0.5rem;" data-i18n="calculator.resultsTitle">Projected Annual Financial Breakdown</h4>
+
+          <div class="calc-result-row">
+            <span class="calc-result-title" data-i18n="calculator.opexTitle">Estimated Annual OpEx (Crew, Berthage, Fuel, Insurance):</span>
+            <span class="calc-result-val" id="calc-opex-display">$620,000</span>
+          </div>
+
+          <div class="calc-result-row">
+            <span class="calc-result-title" data-i18n="calculator.grossTitle">Projected Gross Charter Revenue:</span>
+            <span class="calc-result-val" id="calc-gross-display" style="color: #38BDF8;">$1,800,000</span>
+          </div>
+
+          <div class="calc-highlight-row">
+            <span style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold-accent);" data-i18n="calculator.netTitle">Projected Net Owner Operating Yield:</span>
+            <span class="calc-highlight-val" id="calc-net-display">+$910,000</span>
+          </div>
+
+          <button class="btn-gold" style="width: 100%; margin-top: 0.5rem;" data-action="open-booking">
+            Request Full Financial Due Diligence
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Signature Case Studies Showcase -->
+  <section class="section-luxury" id="cases">
+    <div class="container">
+      <div class="section-header">
+        <span class="luxury-badge" data-i18n="cases.tag">PROVEN TRACK RECORD</span>
+        <h2 class="section-title" data-i18n="cases.title">Signature Case Studies & Maritime Achievements</h2>
+        <div class="gold-divider center"></div>
+        <p class="section-desc" data-i18n="cases.desc">
+          Real-world engagements driving commercial expansion and financial performance for marine leaders and private vessel owners.
+        </p>
+      </div>
+
+      <div class="cases-grid">
+        <!-- Case 1: Mercury Marine Expansion -->
+        <div class="case-card">
+          <div class="case-image-wrap">
+            <img 
+              src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=700&auto=format&fit=crop&q=80" 
+              alt="Mercury High Performance Marine Outboard Rigging" 
+              class="case-image" 
+            />
+            <span class="case-badge-pill">PROPULSION M&A</span>
+          </div>
+          <div class="case-body">
+            <span class="case-client-tag" data-i18n="cases.c1Tag">MERCURY PROPULSION EXPANSION</span>
+            <h3 class="case-title" data-i18n="cases.c1Title">Americas High-Performance Dealer Network Restructuring</h3>
+            <p class="case-excerpt" data-i18n="cases.c1Desc">
+              Orchestrated commercial integration for Mercury Verado V12 power packages across top Florida luxury boatbuilders, accelerating dealer margin expansion and reducing order cycle times.
+            </p>
+            <div class="case-metrics-bar">
+              <div class="case-metric-item">
+                <span class="case-metric-num" data-i18n="cases.c1Metric1">+38% Market Share</span>
+                <span class="case-metric-txt">South Florida & Caribbean</span>
+              </div>
+              <div class="case-metric-item">
+                <span class="case-metric-num" data-i18n="cases.c1Metric2">Miami · Fort Lauderdale</span>
+                <span class="case-metric-txt">Key Hubs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 2: 62m Benetti Superyacht -->
+        <div class="case-card">
+          <div class="case-image-wrap">
+            <img 
+              src="https://images.unsplash.com/photo-1569263979104-865ab7cd8d17?w=700&auto=format&fit=crop&q=80" 
+              alt="62m Megayacht in Monaco Port Hercule" 
+              class="case-image" 
+            />
+            <span class="case-badge-pill">SUPERYACHT BRAND</span>
+          </div>
+          <div class="case-body">
+            <span class="case-client-tag" data-i18n="cases.c2Tag">SUPERYACHT CHARTER STRATEGY</span>
+            <h3 class="case-title" data-i18n="cases.c2Title">62m Benetti Megayacht Repositioning & Mediterranean Season</h3>
+            <p class="case-excerpt" data-i18n="cases.c2Desc">
+              Developed a cross-border digital UHNWI campaign ahead of the Monaco Yacht Show, securing full charter calendar occupancy across the French Riviera and Caribbean.
+            </p>
+            <div class="case-metrics-bar">
+              <div class="case-metric-item">
+                <span class="case-metric-num" data-i18n="cases.c2Metric1">14 Weeks Booked</span>
+                <span class="case-metric-txt">French Riviera & St. Barths</span>
+              </div>
+              <div class="case-metric-item">
+                <span class="case-metric-num" data-i18n="cases.c2Metric2">$4.2M Charter Revenue</span>
+                <span class="case-metric-txt">Annual Gross</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 3: Family Office Maritime M&A -->
+        <div class="case-card">
+          <div class="case-image-wrap">
+            <img 
+              src="https://images.unsplash.com/photo-1517400508447-f8dd518b86db?w=700&auto=format&fit=crop&q=80" 
+              alt="Superyacht Financial Structuring" 
+              class="case-image" 
+            />
+            <span class="case-badge-pill">FISCAL STRUCTURING</span>
+          </div>
+          <div class="case-body">
+            <span class="case-client-tag" data-i18n="cases.c3Tag">FAMILY OFFICE MARITIME M&A</span>
+            <h3 class="case-title" data-i18n="cases.c3Title">Cross-Border Marine Asset Acquisition & Flag Structuring</h3>
+            <p class="case-excerpt" data-i18n="cases.c3Desc">
+              Conducted financial due diligence and fiscal flag registration for an international family office acquiring a tri-deck motor yacht, achieving significant VAT and operating efficiency.
+            </p>
+            <div class="case-metrics-bar">
+              <div class="case-metric-item">
+                <span class="case-metric-num" data-i18n="cases.c3Metric1">-22% Annual OpEx</span>
+                <span class="case-metric-txt">Optimized Running Cost</span>
+              </div>
+              <div class="case-metric-item">
+                <span class="case-metric-num" data-i18n="cases.c3Metric2">Cayman Islands Flag</span>
+                <span class="case-metric-txt">Jurisdiction</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. VIP Discovery Call Booking Modal -->
+  <div class="modal-overlay" id="booking-modal" role="dialog" aria-modal="true" aria-labelledby="modal-booking-title">
+    <div class="modal-luxury-box">
+      <div class="modal-luxury-header">
+        <h3 id="modal-booking-title" style="font-size: 1.3rem; font-weight: 800; color: #FFFFFF;" data-i18n="booking.title">
+          Schedule a Confidential Advisory Session
+        </h3>
+        <button class="modal-close-btn" data-action="close-booking" aria-label="Close Modal">&times;</button>
+      </div>
+
+      <form id="booking-form">
+        <div class="modal-luxury-body">
+          <p style="font-size: 0.92rem; color: #CBD5E1; margin-bottom: 1.5rem;" data-i18n="booking.desc">
+            Discuss your maritime investment, shipyard expansion, or propulsion strategy directly with Karoline. Sessions available remotely or in-person in Miami / Fort Lauderdale.
+          </p>
+
+          <div class="form-group-lux">
+            <label class="form-label-lux" for="booking-name" data-i18n="booking.nameLabel">Full Name & Title</label>
+            <input type="text" id="booking-name" class="form-input-lux" placeholder="e.g., Jean-Luc Beaulieu · Principal" data-i18n-plh="booking.namePlh" required />
+          </div>
+
+          <div class="form-group-lux">
+            <label class="form-label-lux" for="booking-email" data-i18n="booking.emailLabel">Corporate / Executive Email</label>
+            <input type="email" id="booking-email" class="form-input-lux" placeholder="name@company.com" data-i18n-plh="booking.emailPlh" required />
+          </div>
+
+          <div class="form-group-lux">
+            <label class="form-label-lux" for="booking-company" data-i18n="booking.companyLabel">Organization / Vessel / Family Office</label>
+            <input type="text" id="booking-company" class="form-input-lux" placeholder="e.g., Monaco Marine Ventures" data-i18n-plh="booking.companyPlh" required />
+          </div>
+
+          <div class="form-group-lux">
+            <label class="form-label-lux" for="booking-service" data-i18n="booking.serviceLabel">Engagement Area</label>
+            <select id="booking-service" class="form-select-lux">
+              <option value="Superyacht Strategy" data-i18n="booking.serviceOpt1">Superyacht Brand & Market Strategy</option>
+              <option value="Mercury Propulsion" data-i18n="booking.serviceOpt2">Mercury Marine Propulsion Advisory</option>
+              <option value="Marine Finance" data-i18n="booking.serviceOpt3">Marine Finance & Asset Structuring</option>
+              <option value="Fractional CMO" data-i18n="booking.serviceOpt4">Executive Board / Fractional CMO Role</option>
+            </select>
+          </div>
+
+          <div class="form-group-lux">
+            <label class="form-label-lux" for="booking-notes" data-i18n="booking.notesLabel">Brief Engagement Context</label>
+            <textarea id="booking-notes" rows="3" class="form-textarea-lux" placeholder="Please provide a high-level summary of your project or vessel parameters..." data-i18n-plh="booking.notesPlh"></textarea>
+          </div>
+
+          <button type="submit" class="btn-gold" style="width: 100%; margin-top: 0.5rem;" data-i18n="booking.submitBtn">
+            Confirm Advisory Request
+          </button>
+
+          <a href="https://wa.me/13055550199" target="_blank" rel="noopener" class="btn-outline-gold" style="width: 100%; margin-top: 0.85rem; text-align: center;" data-i18n="booking.waBtn">
+            Direct VIP WhatsApp Concierge (+1 305 555 0199)
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 8. Luxury AI Concierge Chatbot Widget (KAROLINE AI) -->
+  <div class="chat-widget-lux">
+    <!-- Floating Launcher -->
+    <button class="chat-lux-launcher" id="chat-launcher" aria-label="Open Karoline AI Concierge">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+      </svg>
+      <span>KAROLINE AI</span>
+      <span class="chat-lux-badge">Concierge</span>
+    </button>
+
+    <!-- Chat Box -->
+    <div class="chat-lux-box" id="chat-box" role="dialog" aria-modal="true" aria-label="Karoline AI Executive Concierge">
+      <div class="chat-lux-header">
+        <div class="chat-lux-agent">
+          <div class="chat-lux-avatar">
+            ⚜️
+            <span class="chat-online-pulse"></span>
+          </div>
+          <div>
+            <div class="chat-lux-name">Karoline AI</div>
+            <div class="chat-lux-role">Executive Maritime Concierge</div>
+          </div>
+        </div>
+        <button class="chat-lux-close" id="chat-close-btn" aria-label="Close Chat">&times;</button>
+      </div>
+
+      <div class="chat-lux-messages" id="chat-messages">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- Suggested Pills (Trilingual) -->
+      <div class="chat-lux-suggestions" id="chat-suggestions">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="chat-lux-input-bar">
+        <input 
+          type="text" 
+          id="chat-input" 
+          class="chat-lux-input" 
+          placeholder="Inquire on Mercury V12, yacht finance, or booking..." 
+          autocomplete="off" 
+        />
+        <button class="chat-lux-send" id="chat-send-btn" aria-label="Send Message">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9. Toast Container -->
+  <div class="toast-luxury-container" aria-live="polite"></div>
+
+  <!-- 10. Global Luxury Footer -->
+  <footer class="footer-luxury" id="contact" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div>
+          <span class="brand-title" style="font-size: 1.5rem;">KARO<span class="gold-text">LINE</span></span>
+          <p style="font-size: 0.88rem; color: #94A3B8; margin-top: 0.75rem; line-height: 1.6;">
+            Haute Mer & Ultra-Luxury Maritime Advisory. Bridging high-performance marine engineering, FIU international finance, and superyacht brand elevation for elite global clients.
+          </p>
+          <div style="margin-top: 1.25rem;">
+            <span class="luxury-badge">Miami · Monaco · Fort Lauderdale</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Capabilities</h4>
+          <div class="footer-links">
+            <a href="#services">Superyacht Brand Elevation</a>
+            <a href="#services">Mercury Marine V12 Strategy</a>
+            <a href="#services">Cross-Border Marine Finance</a>
+            <a href="#calculator">Yacht ROI & OpEx Modeling</a>
+            <a href="#cases">Fractional Charter Syndication</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Key Hubs</h4>
+          <div class="footer-links">
+            <a href="#">Biscayne Bay · Miami, FL</a>
+            <a href="#">Port Hercule · Monaco</a>
+            <a href="#">17th Street Causeway · Fort Lauderdale</a>
+            <a href="#">FIU Chapman School of Business</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Executive Contact</h4>
+          <div class="footer-links">
+            <a href="#" data-action="open-booking">Schedule Private Briefing</a>
+            <a href="https://wa.me/13055550199" target="_blank" rel="noopener">VIP WhatsApp Concierge</a>
+            <a href="mailto:carolina@karoline-advisory.com">carolina@karoline-advisory.com</a>
+            <a href="tel:+13055550199">+1 (305) 555-0199</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 KAROLINE Haute Mer & Maritime Advisory. All global rights reserved.</div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#" style="color: #64748B;">Confidentiality Charter</a>
+          <a href="#" style="color: #64748B;">Maritime Compliance</a>
+          <a href="#" style="color: #64748B;">Terms of Advisory</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- App Bootstrap Module -->
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

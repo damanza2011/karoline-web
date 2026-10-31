@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://damanza2011.github.io/karoline-web/sitemap.xml

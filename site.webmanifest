@@ -1,0 +1,17 @@
+{
+  "name": "KAROLINE · Haute Mer & Ultra-Luxury Advisory",
+  "short_name": "KAROLINE",
+  "description": "Ultra-Luxury Yachting Advisory, Marine Finance & Propulsion Strategy | FIU Miami & Monaco",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B1325",
+  "theme_color": "#D4AF37",
+  "icons": [
+    {
+      "src": "assets/img/favicon.svg",
+      "sizes": "64x64 128x128 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

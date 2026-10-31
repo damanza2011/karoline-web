@@ -1,0 +1,22 @@
+{
+  "name": "karoline-web",
+  "version": "1.0.0",
+  "description": "KAROLINE · Ultra-Luxury Yachting Advisory, Marine Finance & International Marketing | FIU Miami & Monaco",
+  "type": "module",
+  "scripts": {
+    "start": "python -m http.server 8098",
+    "dev": "node --watch scripts/dev-server.js"
+  },
+  "keywords": [
+    "superyachts",
+    "luxury-yachting",
+    "mercury-marine",
+    "fiu-miami",
+    "marine-finance",
+    "monaco",
+    "charter-yield",
+    "trilingual"
+  ],
+  "author": "Carolina (Karoline) / damanza2011",
+  "license": "MIT"
+}
