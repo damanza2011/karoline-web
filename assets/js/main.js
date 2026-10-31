@@ -6,11 +6,33 @@
 import { store } from './core/store.js';
 import { YachtCalculatorController } from './ui/calculator.js';
 import { KarolineConcierge } from './chat/concierge.js';
+import { KaroChatController } from './chat/karo.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Initialize Sub-Controllers
   const calculator = new YachtCalculatorController();
   const concierge = new KarolineConcierge();
+  const karo = new KaroChatController();
+
+  // Wire all data-chat-open and data-chat-prompt triggers (like Salman)
+  document.querySelectorAll('[data-chat-open]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      karo.open();
+    });
+  });
+
+  document.querySelectorAll('[data-chat-prompt]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const prompt = btn.getAttribute('data-chat-prompt');
+      karo.open();
+      if (prompt) {
+        karo.appendUserMessage(prompt);
+        karo.matchAndReply(prompt);
+      }
+    });
+  });
 
   // 2. Trilingual Language Switcher Logic
   const langButtons = document.querySelectorAll('.lang-btn');
@@ -139,6 +161,36 @@ document.addEventListener('DOMContentLoaded', () => {
         `*Service Area:* ${service}\n` +
         `*Context:* ${notes}\n\n` +
         `_Dispatched via karoline-web executive portal._`;
+
+      const waUrl = `https://wa.me/13055550199?text=${encodeURIComponent(waMsg)}`;
+      setTimeout(() => {
+        window.open(waUrl, '_blank');
+      }, 1000);
+    });
+  }
+
+  const contactMandateForm = document.querySelector('#contact-mandate-form');
+  if (contactMandateForm) {
+    contactMandateForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.querySelector('#contact-name')?.value || 'Client';
+      const email = document.querySelector('#contact-email')?.value || '';
+      const company = document.querySelector('#contact-company')?.value || '';
+      const service = document.querySelector('#contact-service')?.value || '';
+      const notes = document.querySelector('#contact-notes')?.value || '';
+
+      showLuxuryToast(
+        'Mandate Request Dispatched',
+        `Thank you ${name}. Carolina has received your request under strict NDA.`
+      );
+
+      const waMsg = `⚜️ *INSTITUTIONAL MANDATE REQUEST · KAROLINE*\n\n` +
+        `*Principal:* ${name}\n` +
+        `*Organization/Vessel:* ${company}\n` +
+        `*Email:* ${email}\n` +
+        `*Service Area:* ${service}\n` +
+        `*Context:* ${notes}\n\n` +
+        `_Dispatched via karoline-web portal under NDA._`;
 
       const waUrl = `https://wa.me/13055550199?text=${encodeURIComponent(waMsg)}`;
       setTimeout(() => {
